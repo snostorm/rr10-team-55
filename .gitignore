@@ -2,3 +2,4 @@
 .project
 tmp/*
 log/*
+Gemfile.lock
