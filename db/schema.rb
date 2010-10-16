@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016230147) do
+ActiveRecord::Schema.define(:version => 20101016232101) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(:version => 20101016230147) do
     t.string   "city"
     t.string   "prov_or_state"
     t.string   "country"
-    t.string   "coords"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "postings", :force => true do |t|
