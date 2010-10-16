@@ -15,7 +15,8 @@
 <body>
   <div id='wrapper'>
     <header>
-      <h1>Letitfree<span>.me</span></h1>
+      <div class='container'>
+      <h1>Let<span class='mid'>it</span>free<span class='end'>.me</span></h1>
       <h2>
         <span>Find or Offer Items for Free in</span>
         Edmonton
@@ -26,6 +27,7 @@
           <li><%= link_to 'Postings', postings_path %></li>
         </ul>
       </nav>
+      </div>
     </header>
     <section id='body'>
       <%= yield %>
