@@ -25,15 +25,7 @@
       Find by tag: <a>Lorem</a>, <a>ipsum dolor</a>, <a>sit amet</a>, <a>consectetur</a>, <a> adipiscing</a>, <a>elit</a>
     </div>
   </header>
-  <% @postings.each do |posting| %>
-  <div class='posting'>
-    <img />
-    <h2><%= link_to posting.title,posting %></h2>
-    <h3><%= posting.location %></h3>
-    <p><%= truncate(posting.description, :length => 250) %></p>
-    <div style='clear: left'></div>
-  </div>
-  <% end %>
+  <%= render @postings %>
 </section>
 
 <%= link_to 'New Posting', new_posting_path %>

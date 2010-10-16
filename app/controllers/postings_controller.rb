@@ -9,6 +9,7 @@ class PostingsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.ms_html { render :partial=>'posting.html.erb', :locals=>{:posting=>false} }
       format.xml  { render :xml => @postings }
     end
   end
@@ -20,6 +21,7 @@ class PostingsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.ms_html { render :partial=>'posting.html.erb', :locals=>{:posting=>@posting} }
       format.xml  { render :xml => @posting }
     end
   end
