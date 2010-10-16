@@ -1,6 +1,6 @@
 Letitfreeme::Application.routes.draw do
   
-  map.root :controller=>'pages'
+  root :to=>'pages#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
