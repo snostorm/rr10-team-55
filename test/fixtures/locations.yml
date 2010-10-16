@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  city: MyString
+  prov_or_state: MyString
+  country: MyString
+  coords: MyString
+
+two:
+  city: MyString
+  prov_or_state: MyString
+  country: MyString
+  coords: MyString
