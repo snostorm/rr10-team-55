@@ -3,11 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <title>Letitfree.me <%= yield :title %></title>
-  <!-- meta tags -->
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  <%= csrf_meta_tag %>
   <%= stylesheet_link_tag 'reset', 'app' %>
-  <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie&subset=latin' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Neuton&subset=latin' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -21,7 +18,7 @@
       </nav>
     </header>
     <section id='body'>
-      <%= yield :body %>
+      <%= yield %>
     </section>
     <footer>
       <nav>
