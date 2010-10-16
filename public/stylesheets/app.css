@@ -61,6 +61,11 @@ body
   font-size: 50px;
   font-weight: bold;
 }
+#wrapper > header h1 a
+{
+  text-decoration: none;
+  color: rgb(255,255,255);
+}
 #wrapper > header h1 span.mid
 {
   color: rgb(135,180,85);
