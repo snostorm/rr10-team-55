@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     redirect_to user_path(self.current_user)
   end
   
-  def destory
+  def logout
     self.current_user = nil
     redirect_to root_path
   end

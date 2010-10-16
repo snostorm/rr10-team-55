@@ -28,6 +28,12 @@ class ApplicationController < ActionController::Base
   
   def current_user=(user)
     @current_user = user
-    session[:user_id] = user.id
+    if(user.present?)
+      session[:user_id] = user.id
+    else
+      session[:user_id] = nil
+    end
   end
+  
+  
 end

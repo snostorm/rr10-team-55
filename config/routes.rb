@@ -9,8 +9,9 @@ Letitfreeme::Application.routes.draw do
   match '/auth/twitter/callback', :to => 'sessions#create_with_twitter'
   match '/auth/:provider/callback', :to => 'sessions#create'
   
+  match '/sessions/logout', :to => 'sessions#logout'
   resources :postings, :only=>[:index]
-  resources :sessions, :only=>[:create]
+  resources :sessions, :only=>[:create,:logout]
   
   root :to=>'pages#index'
   

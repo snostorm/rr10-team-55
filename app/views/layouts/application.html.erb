@@ -39,7 +39,7 @@
           <li>
             <%= link_to 'Home', '/' %>
             <% if(signed_in?) %>
-              <%= link_to 'Sign Out', new_user_path %>
+              <%= link_to 'Sign Out', sessions_logout_path %>
             <% else %>
               <%= link_to 'Sign In', new_user_path %>
             <% end %>
