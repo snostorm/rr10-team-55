@@ -2,7 +2,10 @@
   <title>Sign In</title>
 <% end %> 
 <% content_for :body do %>
-  <% form_for :session,@session,:url => { :action => "create",:controller => "sessions" } do |f| %>
-    <%= button_to "sigin with twitter" %>  
-  <% end %>
+  <a href='/auth/twitter'>Sign in with Twitter</a>
+
+  <form action='/auth/open_id' method='post'>
+    <input type='text' name='identifier'/>
+    <input type='submit' value='Sign in with OpenID'/>
+  </form>
 <%end%>

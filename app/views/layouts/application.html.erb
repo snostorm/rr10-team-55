@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Letitfree.me <%= @title ? @title : controller.action_name %></title>
+  <title>Letitfree.me <%= yield :title %></title>
   <!-- meta tags -->
   <meta name="keywords" content="">
   <meta name="description" content="">
@@ -28,7 +28,7 @@
       </nav>
     </header>
     <section id='body'>
-      <%= yield %>
+      <%= yield :body %>
     </section>
   </div>
 </body>

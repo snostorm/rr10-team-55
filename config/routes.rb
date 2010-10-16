@@ -1,6 +1,8 @@
 Letitfreeme::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create'
   
+  resources :sessions
+  
   root :to=>'pages#index'
   
   # The priority is based upon order of creation:
