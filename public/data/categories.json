@@ -1,0 +1,80 @@
+[
+  {
+   'name': 'art, collectibles'
+  },
+  {
+   'name': 'baby items'
+  },
+  {
+   'name': 'books',
+   'level': 'top'
+  },
+  {
+   'name': 'business, industrial' ,
+     'level': 'top'
+  },
+  {
+   'name': 'cameras, camcorders'
+  },
+  {
+   'name': 'cds, dvds, blu-ray' ,
+     'level': 'top'
+  },
+  {
+   'name': 'clothing' ,
+     'level': 'top'
+  },
+  {
+   'name': 'computers & accessories' ,
+     'level': 'top'
+  },
+  {
+   'name': 'electronics' ,
+     'level': 'top'
+  },
+  {
+   'name': 'furniture' ,
+     'level': 'top'
+  },
+  {
+   'name': 'health, special needs'
+  },
+  {
+   'name': 'hobbies, crafts' ,
+     'level': 'top'
+  },
+  {
+   'name': 'home appliances'
+  },
+  {
+   'name': 'home & garden'
+  },
+  {
+   'name': 'jewellery, watches'
+  },
+  {
+   'name': 'musical instruments'
+  },
+  {
+   'name': 'phones, PDAs, ipods' ,
+     'level': 'top'
+  },
+  {
+   'name': 'sports, bikes'
+  },
+  {
+   'name': 'tickets' ,
+     'level': 'top'
+  },
+  {
+   'name': 'tools, equipment'
+  },
+  {
+   'name': 'toys, games'
+  },
+  {
+   'name': 'video games, consoles'
+  },
+  {
+   'name': 'other'}
+]

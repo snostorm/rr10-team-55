@@ -10,12 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016024817) do
+ActiveRecord::Schema.define(:version => 20101016150028) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "postings", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.time     "date_expires"
+    t.time     "date_closed"
+    t.string   "location"
+    t.boolean  "new"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

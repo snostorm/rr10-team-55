@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @posting.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @posting.description %>
+</p>
+
+<p>
+  <b>Date expires:</b>
+  <%= @posting.date_expires %>
+</p>
+
+<p>
+  <b>Date closed:</b>
+  <%= @posting.date_closed %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @posting.location %>
+</p>
+
+<p>
+  <b>New:</b>
+  <%= @posting.new %>
+</p>
+
+
+<%= link_to 'Edit', edit_posting_path(@posting) %> |
+<%= link_to 'Back', postings_path %>

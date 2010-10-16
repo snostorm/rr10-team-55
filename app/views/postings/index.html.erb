@@ -1,0 +1,41 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'postings' %>
+<% end %>
+<h1>Item Postings</h1>
+<nav id='categories'>
+  <h1>Categories</h1>
+  <ul>
+    <li class='current'>All</li>
+  <% for category in @categories %>
+    <li class='<%= category['level'] if category['level'] %>'><%= link_to category['name'], '#' %></li>
+  <% end%>
+  </ul>
+  <button data-action='showAllCategories'>More</button>
+</nav>
+
+<section id='postingsList'>
+  <header>
+    <h1>Recent Items in Edmonton</h1>
+    <div>
+      Find by tag: <a>Lorem</a>, <a>ipsum dolor</a>, <a>sit amet</a>, <a>consectetur</a>, <a> adipiscing</a>, <a>elit</a>
+    </div>
+  </header>
+  <% @postings.each do |posting| %>
+  <div class='posting'>
+    <img />
+    <h2><%= link_to posting.title,posting %></h2>
+    <h3><%= posting.location %></h3>
+    <p><%= truncate(posting.description, :length => 250) %></p>
+    <div style='clear: left'></div>
+  </div>
+  <% end %>
+</section>
+
+<%= link_to 'New Posting', new_posting_path %>
+<div style='clear:left'></div>
+<script>
+$('#categories [data-action="showAllCategories"]').bind('click', function(e){
+  $('#categories li').show();
+  $(this).hide();
+});
+</script>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  date_expires: 2010-10-16 09:00:28
+  date_closed: 2010-10-16 09:00:28
+  location: MyString
+  new: false
+
+two:
+  title: MyString
+  description: MyText
+  date_expires: 2010-10-16 09:00:28
+  date_closed: 2010-10-16 09:00:28
+  location: MyString
+  new: false

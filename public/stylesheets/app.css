@@ -47,14 +47,28 @@ body
 }
 #wrapper > header h2
 {
-  font-size: 1.2em;
-  font-style: italic;
+  text-align: right;
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+#wrapper > header h2 span
+{
+  font-size: 14px;
+  display: block;
+  letter-spacing: normal;
+  color: rgba(255,255,255,0.8);
 }
 #wrapper > header nav ul
 {
   position: absolute;
   right: 20px;
-  bottom: 20px;
+  bottom: 6px;
+}
+#wrapper > header nav ul li
+{
+  display: inline-block;
 }
 #wrapper > header nav ul li a
 {

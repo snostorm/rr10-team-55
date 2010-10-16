@@ -1,7 +1,10 @@
 Letitfreeme::Application.routes.draw do
+  resources :postings
+
   match '/auth/:provider/callback', :to => 'sessions#create'
   
-  resources :sessions
+  resources :postings, :only=>[:index]
+  resources :sessions, :only=>[:create]
   
   root :to=>'pages#index'
   

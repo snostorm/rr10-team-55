@@ -1,0 +1,85 @@
+#categories
+{
+  float: left;
+  background: rgba(0,0,0,0.05);
+  padding: 10px;
+  width: 120px;
+  font-size: 12px;
+  margin-right: 20px;
+}
+#categories li
+{
+  display: none;
+  border-bottom: 1px solid rgb(150,150,150);
+  padding: 4px 4px 5px 4px;
+  margin: 0px;
+  font-weight: bold;
+}
+#categories li.current,
+#categories li.top
+{
+  display: block;
+}
+#categories li a
+{
+  color: #0187C5;
+  text-decoration: none;
+  font-weight: normal;
+}
+#categories li a:hover
+{
+  text-decoration: underline;
+}
+
+#postingsList
+{
+  padding: 0px 20px;
+  margin-left: 140px;
+}
+#postingsList header
+{
+  padding: 10px;
+  background-color:  rgba(0,0,0,0.05);
+  background-image: 
+    -webkit-gradient(
+      linear, 
+      left top, 
+      left bottom, 
+      from(rgba(0,0,0,0)), 
+      to(rgba(0,0,0,0.1))
+    );
+  border: 1px solid rgb(200,200,200);
+  margin-bottom: 10px;
+}
+#postingsList header h1
+{
+  font-size: 1.2em;
+}
+#postingsList header div
+{
+  font-size: 12px;
+}
+#postingsList .posting
+{
+  height: 110px;
+  margin: 5px 0px;
+  border-bottom: 1px solid  rgb(150,150,150);
+  font-size: 12px;
+  overflow-y: hidden;
+}
+#postingsList .posting img
+{
+  width: 100px; height: 100px; background-color: rgb(200,200,200);
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+#postingsList .posting h2
+{
+  font-size: 14px;
+  margin-bottom: 0.2em;
+}
+#postingsList .posting h3
+{
+  font-size: 12px;
+}
