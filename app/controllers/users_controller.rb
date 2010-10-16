@@ -42,22 +42,10 @@ class UsersController < ApplicationController
   # PUT /Users/1
   # PUT /Users/1.xml
   def update
-    if(params[:commit] == "Allow me to sign in with twitter to this account")
-      save_twitter_credentials_from_existing()
-      return
-    end
     
     @user = User.find(params[:id])
     
-    password = params[:user][:password]
-    password_confirm = params[:user][:password_confirmation]
-    
     bSave = true
-    
-    if(password.present? && password != password_confirm)
-      flash[:error] = "new passwords do not match"
-      bSave = false
-    end
     
     if(bSave)
       bSave = @user.update_attribute(:bio,params[:user][:bio])
@@ -68,11 +56,11 @@ class UsersController < ApplicationController
     end
     
     if(bSave)
-      bSave = @user.update_attribute(:twitter,params[:user][:twitter])
+      bSave = @user.update_attribute(:first_name,params[:user][:first_name])
     end
     
     if(bSave)
-      bSave = @user.update_attribute(:fullname,params[:user][:fullname])
+      bSave = @user.update_attribute(:last_name,params[:user][:last_name])
     end
     
     if(bSave)

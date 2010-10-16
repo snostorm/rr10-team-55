@@ -1,25 +1,33 @@
-
+<% form_for(@user) do |f| %>
   
 <table>
   <tr>
     <td>User Name&nbsp;</td>
-    <td><%= @user.name %></td>
+    <td><%= f.text_field :name %></td>
   </tr>
   <tr>
     <td>First Name&nbsp;</td>
-    <td><%= @user.first_name %></td>
+    <td><%= f.text_field :first_name %></td>
   </tr>
   <tr>
     <td>Last Name&nbsp;</td>
-    <td><%= @user.last_name %></td>
+    <td><%= f.text_field :last_name %></td>
+  </tr>
+  <tr>
+    <td>Email&nbsp;</td>
+    <td><%= f.text_field :email %></td>
   </tr>
   <tr>
     <td>Location &nbsp;</td>
-    <td><%= @user.location %></td>
+    <td><%= f.text_field :location %></td>
   </tr>
   <tr>
     <td>Bio&nbsp;</td>
-    <td><%= @user.bio %></td>
+    <td><%= f.text_area :bio,:size=>"22x10" %></td>
   </tr>
 
 </table>
+  <%= f.submit "Update user" %><%= link_to "Cancel",user_path(@user) %>
+<% end %>
+
+
