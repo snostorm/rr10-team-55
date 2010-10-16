@@ -1,7 +1,12 @@
 <%= content_for :head do %>
   <%= stylesheet_link_tag 'postings' %>
 <% end %>
-<h1>Item Postings</h1>
+<header>
+  <h1>Item Postings</h1>
+  <nav class='sectionMenu'>
+  <%= link_to '<span>+</span>Offer an Item'.html_safe(), new_posting_path, :class=>'offerItem button' %>
+  </nav>
+</header>
 <nav id='categories'>
   <h1>Categories</h1>
   <ul>

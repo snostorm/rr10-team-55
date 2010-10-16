@@ -76,7 +76,7 @@ body
 {
   text-align: right;
   position: absolute;
-  top: -10px; right: 20px;
+  top: -10px; right: 0px;
   font-size: 30px;
   letter-spacing: 4px;
 }
@@ -90,7 +90,7 @@ body
 #wrapper > header nav ul
 {
   position: absolute;
-  right: 20px;
+  right: 0px;
   bottom: -15px;
 }
 #wrapper > header nav ul li
@@ -107,7 +107,7 @@ body
 }
 #wrapper > header nav ul li a:hover
 {
-  background-color: rgba(0,0,0,0.35);
+  background-color: rgba(100,100,100,0.5);
 }
 #wrapper > footer nav ul li a
 {
@@ -141,4 +141,52 @@ body
 #wrapper > section p
 {
   line-height: 1.4em;
+}
+#wrapper > section > header
+{
+  position: relative;
+}
+#wrapper > section > header nav
+{
+  position: absolute;
+  right: 0px;
+  top: -10px;
+}
+#wrapper > section > header nav .button
+{
+  background-color: rgb(50,50,50);
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 2px solid rgb(80,80,80);
+  
+  background-image: 
+    -webkit-gradient(
+      linear, 
+      left top, 
+      left bottom, 
+      from(rgba(0,0,0,0)), 
+      to(rgba(0,0,0,0.5))
+    );
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 16px;
+  height: 16px;
+  margin: 0;
+}
+#wrapper > section > header nav .button:hover
+{
+  background-color: rgb(80,80,80);
+  border: 2px solid rgb(110,110,110);
+}
+#wrapper > section > header nav .button span
+{
+  color: #87B455;
+  font-family: Neuton, arial, serif;
+  font-weight: bold;
+  font-size: 40px;
+  position: relative;
+  top: 5px;
+  left: -5px;
 }
