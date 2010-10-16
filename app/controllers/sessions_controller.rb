@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
   def create
-   # render :text => request.env['omniauth.auth'].inspect
-    
-   # return
     auth = request.env['rack.auth']
     unless @auth = Authorization.find_from_hash(auth)
       # Create a new user or add an auth to existing user, depending on
@@ -13,5 +10,10 @@ class SessionsController < ApplicationController
     self.current_user = @auth.user
   
     render :text => "Welcome, #{current_user.name}."
+  end
+  
+  def destory
+    self.current_user = nil
+    redirect_to root_path
   end
 end

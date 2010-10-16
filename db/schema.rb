@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016150028) do
+ActiveRecord::Schema.define(:version => 20101016153324) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20101016150028) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_moderator", :default => false
   end
 
 end

@@ -18,6 +18,9 @@ gem 'capistrano'
 # Seed Data:
 gem 'random_data', :git=>'git://github.com/tomharris/random_data.git'
 
+#pagination
+gem "will_paginate", "~> 3.0.pre2"
+
 # To use debugger
 # gem 'ruby-debug'
 

@@ -1,5 +1,6 @@
 Letitfreeme::Application.routes.draw do
   resources :postings
+  resources :users
 
   match '/auth/:provider/callback', :to => 'sessions#create'
   

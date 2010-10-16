@@ -1,0 +1,19 @@
+
+<%= will_paginate @users %> 
+<table>
+  <tr>
+    <td>Name</td>
+  </tr>
+<% @users.in_groups_of(4, false) do |row_users| %>
+  <tr>
+    <% for user in row_users %>
+    <td width="220">
+      <%= link_to(user.name,user) %>  
+    </td>
+    <% end %>
+  </tr>
+</table>
+<% end %>
+<%= will_paginate @users %> 
+
+<%= link_to "Sign in",new_user_path %>
