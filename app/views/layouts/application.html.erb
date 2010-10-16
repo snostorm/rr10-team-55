@@ -8,16 +8,15 @@
   <meta name="description" content="">
   <%= stylesheet_link_tag 'reset', 'app' %>
   <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie&subset=latin' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Neuton&subset=latin' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id='wrapper'>
     <header>
-      <h1>Letitfree.me</h1>
-      <h2>Where the, uh, free, come to... be?</h2>
-      
+      <h1>Letitfree<span>.me</span></h1>    
       <nav>
         <ul>
-          <li><a href='/'>Home</a></li>
+          <li><%= link_to 'Home', '/' %></li>
         </ul>
       </nav>
     </header>
