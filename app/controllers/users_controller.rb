@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
+    @title = 'User Directory'
     @users = User.paginate(:page => params[:page], :per_page => User.per_page)
 
     respond_to do |format|

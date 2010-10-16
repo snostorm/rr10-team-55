@@ -3,6 +3,7 @@ class PostingsController < ApplicationController
   # GET /postings.xml
   def index
     @postings = Posting.all
+    @title = 'Item Postings'
 
     categories = File.open(File.join(Rails.root, 'public', 'data', 'categories.json'), 'r').read();
     @categories = ActiveSupport::JSON.decode(categories)

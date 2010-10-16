@@ -8,8 +8,14 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
+  before_filter :get_subtemplate_and_title
+  
   protected
-
+  def get_subtemplate_and_title
+    @bodylayout ||= 'interior'
+    @title ||= action_name
+  end
+  
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
   end
