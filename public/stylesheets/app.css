@@ -18,7 +18,8 @@ body
   width: 960px;
 }
 #wrapper > header,
-#wrapper > section
+#wrapper > section,
+#wrapper > footer
 {
   padding: 20px;
 }
@@ -59,6 +60,20 @@ body
   background-color: rgba(0,0,0,0.5);
   color: #fff;
   padding: 5px 10px;
+  text-decoration: none;
+}
+#wrapper > header nav ul li a:hover
+{
+  background-color: rgba(0,0,0,0.35);
+}
+#wrapper > footer nav ul li a
+{
+  font-size: 0.9em;
+  color: #000;
+}
+#wrapper > footer nav ul li a:hover
+{
+  
 }
 #wrapper > section
 {
