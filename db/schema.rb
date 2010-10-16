@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(:version => 20101016214858) do
     t.string   "prov_or_state"
     t.string   "country"
     t.string   "coords"
+  end 
+  
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20101016214858) do
     t.boolean  "new"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category_id"
   end
 
   create_table "users", :force => true do |t|

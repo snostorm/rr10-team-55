@@ -2,7 +2,8 @@
   <img />
   <h2><%= link_to ms(posting, :title), ms(posting, :link) %></h2>
   <h3>
-    <span class='location'><%= ms posting, :location %></span>
+    <span class='category'><%= ms posting, :category %></span>
+    <span class='location'>Near <%= ms posting, :location %></span>
     <time class='age'><%= ms posting, :age %></time>
   </h3>
   <p><%= ms posting, :description %></p>

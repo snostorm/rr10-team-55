@@ -11,6 +11,9 @@ module PostingsHelper
   def description(posting)
     truncate(posting.description, :length => 250)
   end
+  def category(posting)
+    link_to(posting.category.name, posting.category)
+  end
   def age(posting)
     time_ago_in_words posting.created_at
   end

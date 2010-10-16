@@ -1,4 +1,6 @@
 Letitfreeme::Application.routes.draw do
+  resources :categories
+
   resources :postings
   resources :users
 
