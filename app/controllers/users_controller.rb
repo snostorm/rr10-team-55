@@ -5,16 +5,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    auth = request.env['rack.auth']
-    unless @auth = Authorization.find_from_hash(auth)
-      # Create a new user or add an auth to existing user, depending on
-      # whether there is already a user signed in.
-      @auth = Authorization.create_from_hash(auth, current_user)
-    end
-    # Log the authorizing user in.
-    self.current_user = @auth.user
-  
-    redirect_to edit_user_path
+    redirect_to :controller => "sessions",:action=>"create"
   end
 
   # GET /users
@@ -61,6 +52,9 @@ class UsersController < ApplicationController
     
     if(bSave)
       bSave = @user.update_attribute(:last_name,params[:user][:last_name])
+    end
+    if(bSave)
+      bSave = @user.update_attribute(:name,params[:user][:name])
     end
     
     if(bSave)

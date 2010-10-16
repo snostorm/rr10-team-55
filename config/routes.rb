@@ -2,6 +2,7 @@ Letitfreeme::Application.routes.draw do
   resources :postings
   resources :users
 
+  match '/auth/twitter/callback', :to => 'sessions#create_with_twitter'
   match '/auth/:provider/callback', :to => 'sessions#create'
   
   resources :postings, :only=>[:index]
