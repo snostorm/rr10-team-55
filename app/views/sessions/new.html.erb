@@ -1,0 +1,8 @@
+<% content_for :head do %>
+  <title>Sign In</title>
+<% end %> 
+<% content_for :body do %>
+  <% form_for :session,@session,:url => { :action => "create",:controller => "sessions" } do |f| %>
+    <%= button_to "sigin with twitter" %>  
+  <% end %>
+<%end%>
