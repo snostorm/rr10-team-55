@@ -151,7 +151,7 @@ body
 {
   position: absolute;
   right: 0px;
-  top: -10px;
+  top: 0px;
 }
 #wrapper > section > header nav .button
 {
@@ -175,6 +175,12 @@ body
   line-height: 16px;
   height: 16px;
   margin: 0;
+  
+  position: relative;
+}
+#wrapper > section > header nav .button.hasIcon
+{
+  padding-left: 20px;
 }
 #wrapper > section > header nav .button:hover
 {
@@ -187,7 +193,7 @@ body
   font-family: Neuton, arial, serif;
   font-weight: bold;
   font-size: 40px;
-  position: relative;
-  top: 5px;
-  left: -5px;
+  position: absolute;
+  top: -2px;
+  left: 3px;
 }

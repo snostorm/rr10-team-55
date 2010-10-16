@@ -1,3 +1,9 @@
+<header>
+  <h1>User Directory</h1>
+  <nav>
+  <%= link_to "Sign in",new_user_path,:class=>'button' %>
+  </nav>
+</header>
 
 <%= will_paginate @users %> 
 <table>
@@ -16,4 +22,3 @@
 <% end %>
 <%= will_paginate @users %> 
 
-<%= link_to "Sign in",new_user_path %>
