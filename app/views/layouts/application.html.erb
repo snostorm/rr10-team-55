@@ -30,9 +30,9 @@
       </nav>
       </div>
     </header>
-    <section id='body'>
-      <%= yield %>
-    </section>
+    
+    <%= render :partial=>'layouts/'+@bodylayout %>
+    
     <footer>
       <nav>
         <ul>

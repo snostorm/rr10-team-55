@@ -1,0 +1,12 @@
+<section id='content' class='interior'>
+  <header id='contentHeader'>
+    <h1><%= @title %></h1>
+    <nav class='sectionMenu'>
+      <%= yield :headerMenu %>
+    </nav>
+  </header>
+
+  <div id='bodyHolder'>
+    <%= yield %>
+  </div>
+</section>

@@ -1,9 +1,6 @@
-<header>
-  <h1>User Directory</h1>
-  <nav>
+<%= content_for :headerMenu do %>
   <%= link_to "Sign in",new_user_path,:class=>'button' %>
-  </nav>
-</header>
+<% end %>
 
 <%= will_paginate @users %> 
 <table>
