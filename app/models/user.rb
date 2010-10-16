@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authorizations
-  
+  has_many :postings
   
   
   cattr_reader :per_page

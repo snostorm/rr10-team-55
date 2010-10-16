@@ -30,6 +30,12 @@
   <%= @posting.new %>
 </p>
 
+<p>
+  <b>Poster:</b>
+  <%= link_to(@author.name)%>
+</p>
+
+
 
 <%= link_to 'Edit', edit_posting_path(@posting) %> |
 <%= link_to 'Back', postings_path %>

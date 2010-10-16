@@ -1,5 +1,7 @@
 class PostingsController < ApplicationController
   before_filter :get_filters
+  before_filter :create_edit, :only => [:new,:update,:create,:edit]
+  before_filter :can_delete, :only => [:destroy]
 
   # GET /postings
   # GET /postings.xml
@@ -29,6 +31,7 @@ class PostingsController < ApplicationController
   # GET /postings/1.xml
   def show
     @posting = Posting.find(params[:id])
+    @author = User.find_by_id(@posting.user_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -57,6 +60,7 @@ class PostingsController < ApplicationController
   # POST /postings.xml
   def create
     @posting = Posting.new(params[:posting])
+    @posting.user_id = current_user.id
 
     respond_to do |format|
       if @posting.save
@@ -102,6 +106,18 @@ class PostingsController < ApplicationController
     puts(params.inspect)
     if(category = params[:category_id])
       @category = Category.find(category)
+    end
+  end
+  
+  def create_edit
+    unless(signed_in?)
+      redirect_to postings_path(params[:id])
+    end
+  end
+  
+  def can_delete
+    unless(current_user_admin?)
+      redirect_to postings_path(params[:id])
     end
   end
 end

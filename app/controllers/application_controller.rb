@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  helper_method :current_user_admin?
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
@@ -18,6 +20,10 @@ class ApplicationController < ActionController::Base
   
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
+  end
+  
+  def current_user_admin?
+    return @current_user.is_moderator
   end
   
   def signed_in?
