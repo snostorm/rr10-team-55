@@ -2,16 +2,17 @@ body
 {
   font-family: arial, serif; 
   background-color: rgb(135,180,85);
-  background-image: 
+  background-image:
+    
     -webkit-gradient(
       linear, 
       left top, 
-      left 400, 
-      from(rgba(0,0,0,0.3)), 
-      color-stop(200, rgba(0,0,0,0.3)),
+      left 500, 
+      from(rgba(0,0,0,0.55)), 
+      color-stop(100, rgba(0,0,0,0.55)),
       to(rgba(0,0,0,0))
-    );
-  background-repeat: repeat-x;
+    ), url('/images/texturebg.gif');
+  background-repeat: repeat-x, repeat;
 }
 #wrapper
 {
