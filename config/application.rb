@@ -40,5 +40,9 @@ module Letitfreeme
     config.filter_parameters += [:password]
     
     config.action_view.javascript_expansions[:defaults] = %w(jquery rails application)
+    
+    config.generators do |g|  
+      g.stylesheets false  
+    end
   end
 end

@@ -15,6 +15,9 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 gem 'capistrano'
 
+# Seed Data:
+gem 'random_data', :git=>'git://github.com/tomharris/random_data.git'
+
 # To use debugger
 # gem 'ruby-debug'
 
