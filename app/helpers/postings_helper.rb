@@ -1,4 +1,4 @@
-module PostingsHelper
+module PostingsHelper  
   def title(posting)
     posting.title
   end
@@ -10,5 +10,8 @@ module PostingsHelper
   end
   def description(posting)
     truncate(posting.description, :length => 250)
+  end
+  def age(posting)
+    time_ago_in_words posting.created_at
   end
 end

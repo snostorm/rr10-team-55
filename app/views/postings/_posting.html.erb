@@ -1,7 +1,10 @@
 <div class='posting'>
   <img />
   <h2><%= link_to ms(posting, :title), ms(posting, :link) %></h2>
-  <h3><%= ms posting, :location %></h3>
+  <h3>
+    <span class='location'><%= ms posting, :location %></span>
+    <time class='age'><%= ms posting, :age %></time>
+  </h3>
   <p><%= ms posting, :description %></p>
   <div style='clear: left'></div>
 </div>

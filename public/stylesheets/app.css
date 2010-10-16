@@ -239,3 +239,13 @@ body
   top: -2px;
   left: 3px;
 }
+
+
+/* HOME PAGE STUFF */
+#content.home #recentPostings
+{
+  font-size: 12px;
+  border: 1px solid rgb(50,50,50);
+  background-color: #fff;
+  padding: 5px;
+}
