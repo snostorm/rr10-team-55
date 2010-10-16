@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016214858) do
+ActiveRecord::Schema.define(:version => 20101016221408) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20101016214858) do
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "locations", :force => true do |t|

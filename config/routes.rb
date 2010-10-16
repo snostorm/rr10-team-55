@@ -1,5 +1,7 @@
 Letitfreeme::Application.routes.draw do
-  resources :categories
+  resources :categories do
+    resources :postings
+  end
 
   resources :postings
   resources :users

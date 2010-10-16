@@ -1,9 +1,17 @@
 class PostingsController < ApplicationController
+  before_filter :get_filters
+
   # GET /postings
   # GET /postings.xml
   def index
-    @postings = Posting.all
-    @title = 'Item Postings'
+    if(@category)
+      @title = @category.name.titleize
+      @postings = @category.postings
+    else
+      @title = 'Item Postings'
+      @postings = Posting.all
+    end
+    
 
     categories = File.open(File.join(Rails.root, 'public', 'data', 'categories.json'), 'r').read();
     @categories = ActiveSupport::JSON.decode(categories)
@@ -84,6 +92,14 @@ class PostingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(postings_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  private
+  def get_filters
+    puts(params.inspect)
+    if(category = params[:category_id])
+      @category = Category.find(category)
     end
   end
 end
