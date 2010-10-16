@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
   def get_subtemplate_and_title
     @bodylayout ||= 'interior'
-    @title ||= action_name
+    @title ||= controller_name.capitalize
   end
   
   def current_user

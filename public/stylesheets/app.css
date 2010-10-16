@@ -133,6 +133,18 @@ body
   border: 3px solid rgb(225,225,225);
   -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
 }
+#content.home
+{
+  background-color: rgba(255,255,255,0.7);
+  background-image: 
+    -webkit-gradient(
+      linear, 
+      left top, 
+      left 100, 
+      from(rgba(255,255,255,1)), 
+      to(rgba(225,225,225,0))
+    );
+}
 #content.interior
 {
   width: 1000px;
