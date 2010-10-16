@@ -20,16 +20,18 @@ ActiveRecord::Schema.define(:version => 20101016214858) do
     t.datetime "updated_at"
   end
 
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "city"
     t.string   "prov_or_state"
     t.string   "country"
     t.string   "coords"
-  end 
-  
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
