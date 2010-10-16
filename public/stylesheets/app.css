@@ -1,0 +1,78 @@
+body
+{
+  font-family: arial, serif; 
+  background-color: rgb(0,120,0);
+  background-image: 
+    -webkit-gradient(
+      linear, 
+      left top, 
+      left 100, 
+      from(rgba(0,0,0,0.3)), 
+      to(rgba(0,0,0,0))
+    );
+  background-repeat: repeat-x;
+}
+#wrapper
+{
+  margin: 0 auto;
+  width: 960px;
+}
+#wrapper > header,
+#wrapper > section
+{
+  padding: 20px;
+}
+#wrapper > header
+{
+  padding-top: 5px 0 0 0;
+  position: relative;
+  color: #fff;
+}
+#wrapper > header h1,
+#wrapper > header h2
+{
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+#wrapper > header h1
+{
+  font-family: 'Reenie Beanie', arial, serif; 
+  font-size: 4em;
+  font-weight: bold;
+}
+#wrapper > header h1 span
+{
+  font-weight: normal;
+}
+#wrapper > header h2
+{
+  font-size: 1.2em;
+  font-style: italic;
+}
+#wrapper > header nav ul
+{
+  position: absolute;
+  right: 0px;
+  bottom: 20px;
+}
+#wrapper > header nav ul li a
+{
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 5px 10px;
+}
+#wrapper > section
+{
+  background-color: #fff;
+  border: 3px solid rgb(0,70,0);
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+#wrapper > section h1,
+#wrapper > section h2,
+#wrapper > section p
+{
+  margin-bottom: 1em;
+}
+#wrapper > section p
+{
+  line-height: 1.3em;
+}
