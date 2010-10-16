@@ -1,21 +1,23 @@
 body
 {
   font-family: arial, serif; 
-  background-color: rgb(0,120,0);
-  background-image: 
+  background-color: rgb(135,180,85);
+  background-image:
+    
     -webkit-gradient(
       linear, 
       left top, 
-      left 100, 
-      from(rgba(0,0,0,0.3)), 
+      left 500, 
+      from(rgba(0,0,0,0.55)), 
+      color-stop(100, rgba(0,0,0,0.55)),
       to(rgba(0,0,0,0))
-    );
-  background-repeat: repeat-x;
+    ), url('/images/texturebg.gif');
+  background-repeat: repeat-x, repeat;
 }
 #wrapper
 {
-  margin: 0 auto;
-  width: 960px;
+/*  margin: 0 auto;
+  width: 960px;*/
 }
 #wrapper > header,
 #wrapper > section,
@@ -28,28 +30,54 @@ body
   padding-top: 5px 0 0 0;
   position: relative;
   color: #fff;
+  
+  background-color: rgba(70,70,70,1);
+  background-image: 
+    -webkit-gradient(
+      linear, 
+      left top, 
+      left bottom, 
+      from(rgba(0,0,0,0)), 
+      to(rgba(0,0,0,0.3))
+    );
+    
+  border-bottom: 4px solid rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+}
+#wrapper > header .container
+{
+  margin: 0 auto;
+  width: 960px;
+  position: relative;
 }
 #wrapper > header h1,
 #wrapper > header h2
 {
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
 }
 #wrapper > header h1
 {
   font-family: 'Neuton', arial, serif; 
-  font-size: 4em;
+  font-size: 50px;
   font-weight: bold;
 }
-#wrapper > header h1 span
+#wrapper > header h1 span.mid
+{
+  color: rgb(135,180,85);
+/*  font-style: italic;
+  padding-right: 5px;*/
+}
+#wrapper > header h1 span.end
 {
   font-weight: normal;
   font-size: 0.7em;
+  color: rgba(255,255,255,0.8);
 }
 #wrapper > header h2
 {
   text-align: right;
   position: absolute;
-  top: 20px; right: 20px;
+  top: -10px; right: 0px;
   font-size: 30px;
   letter-spacing: 4px;
 }
@@ -63,8 +91,8 @@ body
 #wrapper > header nav ul
 {
   position: absolute;
-  right: 20px;
-  bottom: 6px;
+  right: 0px;
+  bottom: -15px;
 }
 #wrapper > header nav ul li
 {
@@ -76,10 +104,11 @@ body
   color: #fff;
   padding: 5px 10px;
   text-decoration: none;
+  font-size: 14px;
 }
 #wrapper > header nav ul li a:hover
 {
-  background-color: rgba(0,0,0,0.35);
+  background-color: rgba(100,100,100,0.5);
 }
 #wrapper > footer nav ul li a
 {
@@ -92,9 +121,12 @@ body
 }
 #wrapper > section
 {
-  background-color: #fff;
-  border: 3px solid rgb(0,70,0);
-  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  margin: 10px auto;
+  width: 960px;
+    
+  background-color: rgb(255,255,255);
+  border: 3px solid rgb(225,225,225);
+  -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
 }
 #wrapper > section h1,
 #wrapper > section h2
@@ -110,4 +142,52 @@ body
 #wrapper > section p
 {
   line-height: 1.4em;
+}
+#wrapper > section > header
+{
+  position: relative;
+}
+#wrapper > section > header nav
+{
+  position: absolute;
+  right: 0px;
+  top: -10px;
+}
+#wrapper > section > header nav .button
+{
+  background-color: rgb(50,50,50);
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 2px solid rgb(80,80,80);
+  
+  background-image: 
+    -webkit-gradient(
+      linear, 
+      left top, 
+      left bottom, 
+      from(rgba(0,0,0,0)), 
+      to(rgba(0,0,0,0.5))
+    );
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 16px;
+  height: 16px;
+  margin: 0;
+}
+#wrapper > section > header nav .button:hover
+{
+  background-color: rgb(80,80,80);
+  border: 2px solid rgb(110,110,110);
+}
+#wrapper > section > header nav .button span
+{
+  color: #87B455;
+  font-family: Neuton, arial, serif;
+  font-weight: bold;
+  font-size: 40px;
+  position: relative;
+  top: 5px;
+  left: -5px;
 }
