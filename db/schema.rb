@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(:version => 20101016153324) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_moderator", :default => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "bio"
+    t.string   "location"
   end
 
 end

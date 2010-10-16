@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     # Log the authorizing user in.
     self.current_user = @auth.user
   
-    redirect_to users_path
+    redirect_to edit_user_path
   end
 
   # GET /users
