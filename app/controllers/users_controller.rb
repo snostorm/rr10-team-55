@@ -1,4 +1,22 @@
 class UsersController < ApplicationController
+  before_filter :filterEditPermissions, :only => [:edit,:update]
+  
+  def filterEditPermissions
+    unless(canUserEditCurrentUser?)
+      redirect_to users_path
+    end
+  end
+  
+  def canUserEditCurrentUser?
+    if(current_user.present?)
+      if(current_user.is_moderator)
+        return true
+      else
+        return current_user.id == params[:id].to_i
+      end
+    end
+    return false
+  end
   
   def new
     

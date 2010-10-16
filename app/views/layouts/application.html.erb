@@ -38,7 +38,11 @@
         <ul>
           <li>
             <%= link_to 'Home', '/' %>
-            <%= link_to 'Sign In', new_user_path %>
+            <% if(signed_in?) %>
+              <%= link_to 'Sign Out', new_user_path %>
+            <% else %>
+              <%= link_to 'Sign In', new_user_path %>
+            <% end %>
           </li>
         </il>
       </nav>
