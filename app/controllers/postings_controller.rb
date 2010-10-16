@@ -5,10 +5,12 @@ class PostingsController < ApplicationController
   # GET /postings.xml
   def index
     if(@category)
-      @title = @category.name.titleize
+      @title = 'Item Postings by Category'
+      @listTitle = @category.name.titleize
       @postings = @category.postings
     else
       @title = 'Item Postings'
+      @listTitle = 'Recent Items in Edmonton'
       @postings = Posting.all
     end
     
