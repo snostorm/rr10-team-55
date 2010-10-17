@@ -26,21 +26,22 @@ class ApplicationController < ActionController::Base
   def lookup_ip_location
     unless @location
       if @@ip_location_fetcher.nil?
-        puts "Creating new IPLocationFetcher"
+        puts "Creating new IPLocationFetcher" # TODO: remove this debugging/tracing output
         @@ip_location_fetcher = IPLocationFetcher.new
       end
 
       @current_ip_location = @@ip_location_fetcher.fetch_location(request.remote_ip)
       # lookup existing location record in the DB using ip location
       if @current_ip_location
-        # TODO handle when ip_location isn't found in Locations
-        puts "Looking up Location for #{@current_ip_location.city}, #{@current_ip_location.prov_state}." 
+        # TODO handle when ip_location isn't found in Locations - adding? alternative lookups (name vs. code for prov, country, etc.)
         @location = Location.where('city = ? AND prov_or_state = ?',
                         @current_ip_location.city, @current_ip_location.prov_state.upcase).first
-#        unless @location
-#          # TODO add IP location to Locations table?
-#          # TODO IP lookup returns country as name, Locations table has ISO code - translate?
-#        end
+        if @location
+          @current_user.location = @location
+        else
+          # TODO add IP location to Locations table?
+          # TODO IP lookup returns country as name, usually, so may have to lookup by name or 2 letter code
+        end
       end
     end
   end
