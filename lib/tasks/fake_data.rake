@@ -13,9 +13,11 @@ namespace :db do
           # :date_of_birth => Time.now - (rand(12000)).days) 
       end
       
+      @categories = Category.all
+      
       Posting.delete_all if(ENV['FLUSH']=='true')
       newcount.times do
-        c = Posting.create(
+        c = @categories.rand.postings.create(
           :title => Random.grammatical_construct({
               :story => [:thing, :mixer, :note],
               :thing => {:a=>'couch',:b=>'spoon',:c=>'DVD',:d=>'ring',

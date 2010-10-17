@@ -8,9 +8,9 @@
 <nav id='categories'>
   <h1>Categories</h1>
   <ul>
-    <li class='current'>All</li>
-  <% for category in @categories %>
-    <li class='<%= category['level'] if category['level'] %>'><%= link_to category['name'], '#' %></li>
+    <li class='current'><%= link_to_unless_current 'All', postings_path %></li>
+  <% for category in @categories.sort_by(&:name) %>
+    <li class='<%= 'top' %>'><%= link_to_unless_current category['name'], [category, 'postings'] %></li>
   <% end%>
   </ul>
   <button data-action='showAllCategories'>More</button>

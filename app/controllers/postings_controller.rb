@@ -16,9 +16,10 @@ class PostingsController < ApplicationController
       @postings = Posting.all
     end
     
-
-    categories = File.open(File.join(Rails.root, 'public', 'data', 'categories.json'), 'r').read();
-    @categories = ActiveSupport::JSON.decode(categories)
+    # categories = File.open(File.join(Rails.root, 'public', 'data', 'categories.json'), 'r').read();
+    # @categories = ActiveSupport::JSON.decode(categories)
+    
+    @categories = Category.all
 
     respond_to do |format|
       format.html # index.html.erb
