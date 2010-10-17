@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
   def create
     build_auth()
-  
+    self.current_user.email = request.env['omniauth.auth']['user_info']['email']
+    
+    self.current_user.save
+    
     redirect_to user_path(self.current_user)
   end
   
@@ -10,7 +13,6 @@ class SessionsController < ApplicationController
     
     build_auth()
     
-    self.current_user.name = request.env['omniauth.auth']['user_info']['nickname']
     self.current_user.location = request.env['omniauth.auth']['user_info']['location']
     self.current_user.save
   
