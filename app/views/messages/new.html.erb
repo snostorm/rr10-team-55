@@ -1,13 +1,13 @@
 
 <% form_for @message  do |f| %>
 
-  <%= f.hidden_field :recipient_id, :valuse=> @message.recipient_id %>
-  <%= f.hidden_field :sender_id, :valuse=> @message.sender_id %>
+  <%= f.hidden_field :recipient_id, :values=> @message.recipient_id %>
+  <%= f.hidden_field :sender_id, :values=> @message.sender_id %>
 
 
   <p>
     <%= f.label :recipient %>
-    <%= f.label @post_author.name %>
+    <%= f.label @recipient.name %>
   </p>
 
   <p>

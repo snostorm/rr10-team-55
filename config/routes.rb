@@ -1,5 +1,6 @@
 Letitfreeme::Application.routes.draw do
 
+  resources :transactions
   resources :categories do
     resources :postings
   end
