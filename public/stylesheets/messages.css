@@ -1,0 +1,83 @@
+#messages #messageUserThreads {
+  width: 300px;
+  -webkit-box-shadow: #999 0px 3px 4px;
+  background: white;
+  border-bottom-left-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  border-top-left-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  display: inline-block;
+  float: left;
+  height: 100%;
+  position: relative;
+  color: #444;
+}
+#messages .user:hover {
+  background-color: rgba(0, 132, 180, 0.0976562);
+  border-color: rgba(0, 132, 180, 0.148438);
+}
+#messages .user {
+  min-height: 40px;
+  border-bottom: 1px solid #EBEBEB;
+  clear: both;
+  display: block;
+  min-height: 60px;
+  outline: none;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+#messages .user .content {
+  min-height: 36px !important;
+  padding: 8px 15px;
+  clear: both;
+  display: block;
+  font-size: 13px;
+  line-height: 17px;
+  overflow: hidden;
+  position: relative;
+  font-size: 13px;
+  line-height: 17px;
+}
+#messages .user .gravatar {
+  float: left;
+}
+#messages .userName {
+  margin-left: 40px;
+}
+#messages .userName strong {
+  display: block;
+}
+#messages .user .lastMessageDate {
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
+}
+#messages .user .messageCount {
+  color: #333333;
+  font-weight: 300;
+  font-size: 20px;
+  margin-right: 10px;
+  min-width: 30px;
+  padding: 2px 8px;
+  position: absolute;
+  right: 0px;
+  text-align: right;
+  top: 7px;
+  line-height: 17px;
+  cursor: pointer;
+}
+#messages .user:hover .messageCount {
+  color: #0084B4;
+  font-weight: bold;
+}
+#coversationsHeader {
+  background: #EEE none repeat scroll 0px 0px;
+  border-bottom: ;
+  border-top-left-radius: 5px 5px;
+  border-top-right-radius: 0px 0px;
+  height: 30px;
+  padding: 8px 12px;
+  position: relative;
+  z-index: 2;
+}

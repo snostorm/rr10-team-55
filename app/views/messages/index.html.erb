@@ -1,19 +1,23 @@
-
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'messages' %>
+<% end %>
 <%= content_for :headerMenu do %>
   <a id='newMessage' class='button'>New Message</a>
 <% end %>
 
 <section id='messages'>
   <div id='messageUserThreads'>
-    <h1>Conversations</h1>
+    <div id='coversationsHeader'>
+      <h1>Conversations</h1>
+    </div>
     <% for user in @users %>
     <div class='user' data-user-id='<%= user.id %>'>
       <div class='content'>
         <%= image_tag(user.gravatar_url(:size=>32), :class=>'gravatar') %>
-        <span class='userName'>
+        <div class='userName'>
           <strong><%= user.name || 'Username' %></strong>
           <span class='fullName'><%= user.first_name ? (user.first_name + ' ' + user.last_name) : 'Full Name' %></span>
-        </span>
+        </div>
         <div class='details'>
           <date class='lastMessageDate'>15 Oct at 00:35</date>
           <div class='messageCount'>3</div>
@@ -23,64 +27,11 @@
     <% end %>
   </div>
   <div style='clear: left'></div>
+
+  <%= h(flash[:error])%>
+
+  <table>
+  <%= render :partial => 'list_messages',:locals => {:messages => @sentmessages,:typeheader => "Sent Messages",:renderUnreadFlag => :false} %>
+  <%= render :partial => 'list_messages',:locals => {:messages => @receivedmessages,:typeheader => "Received Messages",:renderUnreadFlag => :true} %>
+  </table>
 </section>
-
-<style>
-  #messages #messageUserThreads {
-    width: 300px;
-    -webkit-box-shadow: #999 0px 3px 4px;
-    background: white;
-    border-bottom-left-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
-    border-top-left-radius: 5px 5px;
-    border-top-right-radius: 5px 5px;
-    display: inline-block;
-    float: left;
-    height: 100%;
-    position: relative;
-    color: #444;
-  }
-  #messages .user {
-    min-height: 40px;
-    border-bottom: 1px solid #EBEBEB;
-    clear: both;
-    display: block;
-    min-height: 60px;
-    outline: none;
-    position: relative;
-    margin: 0px;
-    padding: 0px;
-  }
-  #messages .user .content {
-    min-height: 36px !important;
-    padding: 8px 15px;
-    clear: both;
-    display: block;
-    font-size: 13px;
-    line-height: 17px;
-    overflow: hidden;
-    position: relative;
-    font-size: 13px;
-    line-height: 17px;
-  }
-  #messages .messageCount {
-    color: #333333 !important;
-    font-weight: 300 !important;
-    font-size: 20px;
-    margin-right: 10px;
-    min-width: 30px;
-    padding: 2px 8px;
-    position: absolute;
-    right: 0px;
-    text-align: right;
-    top: 7px;
-    line-height: 17px;
-  }
-</style>
-<%= h(flash[:error])%>
-
-<table>
-<%= render :partial => 'list_messages',:locals => {:messages => @sentmessages,:typeheader => "Sent Messages",:renderUnreadFlag => :false} %>
-<%= render :partial => 'list_messages',:locals => {:messages => @receivedmessages,:typeheader => "Received Messages",:renderUnreadFlag => :true} %>
-
-</table>
