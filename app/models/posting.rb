@@ -3,4 +3,7 @@ class Posting < ActiveRecord::Base
   
   belongs_to :category
   belongs_to :user
+  belongs_to :location
+  
+  validates_presence_of :location
 end

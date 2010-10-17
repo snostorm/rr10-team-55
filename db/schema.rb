@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017193605) do
+ActiveRecord::Schema.define(:version => 20101017222847) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20101017193605) do
     t.datetime "updated_at"
     t.string   "category_id"
     t.integer  "user_id"
+    t.integer  "location_id"
   end
 
   create_table "users", :force => true do |t|
