@@ -47,6 +47,7 @@
           </li>
         </il>
       </nav>
+      <%= link_to image_tag(@current_user.gravatar_url(:size=>32), :class=>'gravatar'), @current_user if signed_in? %>
     </footer>
   </div>
 </body>

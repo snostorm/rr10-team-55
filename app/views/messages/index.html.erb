@@ -2,7 +2,7 @@
   <%= stylesheet_link_tag 'messages' %>
 <% end %>
 <%= content_for :headerMenu do %>
-  <a id='newMessage' class='button'>New Message</a>
+  <%= @messages.size %> messages
 <% end %>
 
 <section id='messages'>
@@ -10,8 +10,9 @@
     <div id='coversationsHeader'>
       <h1>Conversations</h1>
     </div>
+    <% @first_user = true %>
     <% for user in @users %>
-    <div class='user' data-user-id='<%= user.id %>'>
+    <div class='user' data-user-id='<%= user.id %>' data-user-name='<%= user.name || "Username" %>'>
       <div class='content'>
         <%= image_tag(user.gravatar_url(:size=>32), :class=>'gravatar') %>
         <div class='userName'>
@@ -19,19 +20,64 @@
           <span class='fullName'><%= user.first_name ? (user.first_name + ' ' + user.last_name) : 'Full Name' %></span>
         </div>
         <div class='details'>
-          <date class='lastMessageDate'>15 Oct at 00:35</date>
-          <div class='messageCount'>3</div>
+          <% last_message = @messages.find {|message| (message.recipient == user || message.sender == user) ? message.created_at : false } %>
+          <date class='lastMessageDate'><%= time_ago_in_words last_message.created_at %> ago</date>
+          <% sum = 0 %>
+          <% @messages.each{|message| sum += ((message.recipient == user || message.sender == user) ? 1 : 0)  } %>
+          <div class='messageCount'><%= sum %></div>
         </div>
       </div>
     </div>
-    <% end %>
+    <% @first_user = false; end %>
+    <div class='user' data-user-id='0'>
+      <div class='content'>
+        <div class='userName'>
+          <strong>Letitfree.me Team</strong>
+          <span class='fullName'></span>
+        </div>
+        <div class='details'>
+          <% last_message = @messages.find {|message| (message.recipient == user || message.sender == user) ? message.created_at : false } %>
+          <date class='lastMessageDate'><%= time_ago_in_words last_message.created_at %> ago</date>
+          <div class='messageCount'>1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id='messageReader'>
+    <div id='newMessage'>
+      <form>
+        <h1>Reply to <span class='username'>Username</span>:</h1>
+        <textarea></textarea>
+      </form>
+    </div>
+    <div id='messageList' class='messageList'>
+      <%= render @messages %>
+    </div>
   </div>
   <div style='clear: left'></div>
-
-  <%= h(flash[:error])%>
-
-  <table>
-  <%= render :partial => 'list_messages',:locals => {:messages => @sentmessages,:typeheader => "Sent Messages",:renderUnreadFlag => :false} %>
-  <%= render :partial => 'list_messages',:locals => {:messages => @receivedmessages,:typeheader => "Received Messages",:renderUnreadFlag => :true} %>
-  </table>
 </section>
+
+<%= h(flash[:error])%>
+
+<script>
+  $(document).ready(function(){
+     var selected = $('#messageUserThreads .user').eq(0),
+         changeMailView = function(e){
+           var selected = $(e),
+               selectedID = selected.attr('data-user-id'),
+               current_user_label = $('#newMessage .username');
+           $('#messageUserThreads .selected').removeClass('selected');
+           selected.addClass('selected');
+           $('#messageList .message').hide();
+           $('#messageList .message[data-message-user-id="'+selectedID+'"]').show();
+           current_user_label.html(selected.attr('data-user-name'));
+         }
+     
+     $('#messageUserThreads .user').click(function(e){
+       changeMailView(this);
+     });
+     
+     selected.click();
+   });
+</script>

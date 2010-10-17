@@ -1,21 +1,14 @@
-<tr>
-  <td colspan=2>
-    <p><%= typeheader %></p>
-  </td>
-</tr>
-<% if (messages.present?)%>
-  <% messages.each do |message| %>
-    <tr>
-      <td>
-        <% if (message.read_at.nil? && renderUnreadFlag)%>  
-          <strong>Unread</strong> &nbsp;
-        <% else %>
-          Read &nbsp;
-        <% end %>
-      </td>
-      <td>
-        <%= link_to(message.subject,message)%>
-      </td>
-    </tr>
-  <% end %>
+<% messages.each do |message| %>
+  <tr>
+    <td>
+      <% if (message.read_at.nil? && renderUnreadFlag)%>  
+        <strong>Unread</strong> &nbsp;
+      <% else %>
+        Read &nbsp;
+      <% end %>
+    </td>
+    <td>
+      <%= link_to(message.subject,message)%>
+    </td>
+  </tr>
 <% end %>

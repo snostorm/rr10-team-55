@@ -20,15 +20,23 @@ class MessagesController < ApplicationController
   def index
     @title = 'Message Centre'
     
-    @users = User.where('email not ?', nil)
     if(signed_in?)
-      @messages = Message.all
-      @sentmessages = Message.find_all_by_sender_id(current_user.id)
-    
-      @receivedmessages = Message.find_all_by_recipient_id(current_user.id)
-    end 
-    respond_to do |format|
-      format.html # new.html.erb
+      @users = User.includes(:sent_messages, :received_messages).where('messages.sender_id = ? OR messages.recipient_id = ?', @current_user.id, @current_user.id)
+      @users.all.delete(@current_user)
+      
+      @sentmessages = @current_user.sent_messages
+      @receivedmessages = @current_user.received_messages
+      
+      @messages = (@sentmessages | @receivedmessages) << Message.new(:subject=>'Welcome!', :body=>'Welcome to letitfree.me!', :created_at=>@current_user.created_at)
+      # @messages.sort_by { |o|
+      #   o.created_at
+      # }
+      
+      respond_to do |format|
+        format.html # new.html.erb
+      end
+    else
+      return redirect_to new_sessions_path
     end
   end
   
