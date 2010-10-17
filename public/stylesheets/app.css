@@ -13,6 +13,8 @@ body
       to(rgba(0,0,0,0))
     ), url('/images/texturebg.gif');
   background-repeat: repeat-x, repeat;
+  
+  min-height: 500px;
 }
 #wrapper
 {
@@ -135,7 +137,7 @@ body
   color: #fff;
   background-color: #000;
   
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 6px 6px;
 }
 #wrapper > footer nav ul li a
 {
@@ -160,8 +162,6 @@ body
   
   background-color: rgb(255,255,255);
   -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
-  
-  border-radius: 5px 5px 0px 0px;
   border-bottom: 0px;
 }
 #content.home
@@ -199,6 +199,11 @@ body
 #content p
 {
   line-height: 1.4em;
+}
+#content,
+#content > header
+{
+  border-radius: 6px 6px 0px 0px;
 }
 #content > header
 {
