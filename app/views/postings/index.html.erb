@@ -10,7 +10,7 @@
   <ul>
     <li class='current'><%= link_to_unless_current 'All', postings_path %></li>
   <% for category in @categories.sort_by(&:name) %>
-    <li class='<%= 'top' %>'><%= link_to_unless_current category['name'], [category, 'postings'] %></li>
+    <li class='<%= 'top' %>'><%= link_to_unless_current category['name'], [category, 'postings'] %> <!--(<%#=category.postings.count if category.postings.count > 0 %>)--></li>
   <% end%>
   </ul>
   <button data-action='showAllCategories'>More</button>
