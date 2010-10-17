@@ -30,10 +30,11 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @title = 'User Directory'
-    @users = User.order(:first_name).paginate(:page => params[:page], :per_page => User.per_page)
+    @users = User.where('email not ?', nil).order('first_name DESC').paginate(:page => params[:page], :per_page => User.per_page)
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render :json => @users }
       format.xml  { render :xml => @users }
     end
   end

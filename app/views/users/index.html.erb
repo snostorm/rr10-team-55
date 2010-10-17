@@ -2,8 +2,7 @@
   <%= link_to "Sign in",new_user_path,:class=>'button' %>
 <% end %>
 
-<% @users.in_groups_of(4, false) do |row_users| %>
-  <% for user in row_users %>
+<% for user in @users %>
   <div class='user' data-user-id='<%= user.id %>'>
     <div class='content'>
       <%= image_tag(user.gravatar_url(:size=>32), :class=>'gravatar') %>
@@ -13,7 +12,6 @@
       </div>
     </div>
   </div>
-  <% end %>
 <% end %>
 
 <div style='clear: left'></div>

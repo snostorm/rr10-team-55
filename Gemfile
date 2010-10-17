@@ -19,7 +19,7 @@ gem 'capistrano'
 gem 'random_data', :git=>'git://github.com/tomharris/random_data.git'
 
 #pagination
-gem "will_paginate", "~> 3.0.pre2"
+gem "will_paginate", '~> 3.0.beta'
 
 gem "gravtastic"
 
