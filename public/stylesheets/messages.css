@@ -20,18 +20,24 @@
   top: 5px;
 }
 #messages #coversationsHeader {
-  background: #EEE none repeat scroll 0px 0px;
-  border-bottom: ;
   border-top-left-radius: 5px 5px;
-  border-top-right-radius: 0px 0px;
+  border-top-right-radius: 5px 5px;
   height: 30px;
   padding: 8px 12px;
   position: relative;
   z-index: 2;
-}
-#messages .user:hover {
-  background-color: rgba(0, 132, 180, 0.0976562);
-  border-color: rgba(0, 132, 180, 0.148438);
+  
+  background-color: rgba(70,70,70,1);
+  background-image: 
+    -webkit-gradient(
+      linear, 
+      left top, 
+      left bottom, 
+      from(rgba(0,0,0,0)), 
+      to(rgba(0,0,0,0.3))
+    );
+    
+  color: #fff;
 }
 #messages .user {
   min-height: 40px;
@@ -44,6 +50,11 @@
   margin: 0px;
   padding: 0px;
   cursor: pointer;
+}
+#messages .user.selected,
+#messages .user:hover {
+  background-color: rgba(0, 132, 180, 0.098);
+  border-color: rgba(0, 132, 180, 0.15);
 }
 #messages .user .content {
   min-height: 36px !important;
