@@ -1,7 +1,10 @@
 require 'net/http'
 require 'ip_location'
+require 'singleton'
 
 class IPLocationFetcher
+  include Singleton
+
   def initialize
     # we initialize an empty hash
     @cache = {}
