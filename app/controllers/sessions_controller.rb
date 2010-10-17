@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     
     build_auth()
     
-    self.current_user.location = request.env['omniauth.auth']['user_info']['location']
+    #self.current_user.location = request.env['omniauth.auth']['user_info']['location']
     self.current_user.save
   
     redirect_to user_path(self.current_user)

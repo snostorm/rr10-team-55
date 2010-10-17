@@ -23,7 +23,10 @@
       Find by tag: <a>Lorem</a>, <a>ipsum dolor</a>, <a>sit amet</a>, <a>consectetur</a>, <a> adipiscing</a>, <a>elit</a>
     </div>
   </header>
+  <%= flash[:error] %>
+  <%= will_paginate @postings %> 
   <%= render @postings %>
+  <%= will_paginate @postings %> 
 </section>
 
 <div style='clear:left'></div>

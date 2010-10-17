@@ -1,6 +1,7 @@
 class PostingsController < ApplicationController
   before_filter :get_filters
-  before_filter :create_edit, :only => [:new,:update,:create,:edit]
+  before_filter :create_new, :only => [:new,:create]
+  before_filter :create_edit, :only => [:update,:edit]
   before_filter :can_delete, :only => [:destroy]
 
   # GET /postings
@@ -13,7 +14,7 @@ class PostingsController < ApplicationController
     else
       @title = 'Item Postings'
       @listTitle = 'Recent Items in Edmonton'
-      @postings = Posting.limit(20)
+      @postings = Posting.paginate(:page => params[:page])
     end
     
     # categories = File.open(File.join(Rails.root, 'public', 'data', 'categories.json'), 'r').read();
@@ -110,8 +111,16 @@ class PostingsController < ApplicationController
     end
   end
   
+  def create_new
+    unless(signed_in?)
+      flash[:error] = "You must be signed in to create a posting."
+      redirect_to postings_path
+    end
+  end
+  
   def create_edit
     unless(signed_in?)
+      flash[:error] = "You must be signed in to edit a posting."
       redirect_to postings_path(params[:id])
     end
   end

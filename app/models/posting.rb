@@ -6,4 +6,7 @@ class Posting < ActiveRecord::Base
   belongs_to :location
   
   validates_presence_of :location
+
+  cattr_reader :per_page
+  @@per_page = 16
 end

@@ -66,6 +66,26 @@ ActiveRecord::Schema.define(:version => 20101017222847) do
     t.integer  "location_id"
   end
 
+  create_table "transactions", :force => true do |t|
+    t.integer  "requestor_id"
+    t.integer  "poster_id"
+    t.integer  "item_id"
+    t.datetime "approved_by_poster_at"
+    t.datetime "completed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "requestor_id"
+    t.integer  "poster_id"
+    t.integer  "item_id"
+    t.datetime "approved_by_poster_at"
+    t.datetime "completed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
