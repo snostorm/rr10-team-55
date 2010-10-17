@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :postings
   
-  
+  is_gravtastic
   cattr_reader :per_page
   @@per_page = 32
   
