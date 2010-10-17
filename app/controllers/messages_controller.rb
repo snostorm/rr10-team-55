@@ -1,20 +1,20 @@
 class MessagesController < ApplicationController
-  before_filter :mustbeloggedintoview, :only => [:show,:new,:create,:edit,:update]
+  before_filter :mustbeloggedintoview
   
   def new
-    @message = Message.new
-    
-    @posting = Posting.find_by_id(params[:posting])
-    @post_author = User.find_by_id(@posting.user_id)
-    @recipient = User.find_by_id( params[:recipient_id])
-
-    @message.subject = @posting.title
-    @message.recipient_id = @recipient.id
-    @message.sender_id = current_user.id
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    # @message = Message.new
+    # 
+    # @posting = Posting.find_by_id(params[:posting])
+    # @post_author = User.find_by_id(@posting.user_id)
+    # @recipient = User.find_by_id( params[:recipient_id])
+    # 
+    # @message.subject = @posting.title
+    # @message.recipient_id = @recipient.id
+    # @message.sender_id = current_user.id
+    # 
+    # respond_to do |format|
+    #   format.html # new.html.erb
+    # end
   end
   
   def index
@@ -51,7 +51,7 @@ class MessagesController < ApplicationController
   
   def create
     @message = Message.new(params[:message])
-    #@message.sender = @message
+    @message.sender = @current_user
     #@message.recipient = Message.find_by_login(params[:message][:to])
 
     if @message.save

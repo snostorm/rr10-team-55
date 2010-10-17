@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017222847) do
+ActiveRecord::Schema.define(:version => 20101017232924) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20101017222847) do
     t.string   "category_id"
     t.integer  "user_id"
     t.integer  "location_id"
+    t.boolean  "is_fake_data", :default => false
   end
 
   create_table "transactions", :force => true do |t|

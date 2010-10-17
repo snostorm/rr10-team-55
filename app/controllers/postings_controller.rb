@@ -10,7 +10,7 @@ class PostingsController < ApplicationController
     if(@category)
       @title = 'Item Postings by Category'
       @listTitle = @category.name.titleize
-      @postings = @category.postings
+      @postings = @category.postings.paginate(:page => params[:page])
     else
       @title = 'Item Postings'
       @listTitle = 'Recent Items in Edmonton'

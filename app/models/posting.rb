@@ -5,7 +5,7 @@ class Posting < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
   
-  validates_presence_of :location
+  #validates_presence_of :location
 
   cattr_reader :per_page
   @@per_page = 16
