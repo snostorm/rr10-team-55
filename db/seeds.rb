@@ -33,7 +33,7 @@ puts 'cities_file=' + cities_filename
 
 CSV.foreach cities_filename do |row|
   if (!row[0].nil?)
-    loc=Locations.new(:city => row[0], :prov_or_state => row[1], :country => row[2], :latitude => row[3], :longitude => row[4])
+    loc=Location.new(:city => row[0], :prov_or_state => row[1], :country => row[2], :latitude => row[3], :longitude => row[4])
     if(loc.save)
       puts "created #{loc.city} @ #{loc.id}"
     else

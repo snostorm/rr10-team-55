@@ -39,8 +39,7 @@ class ApplicationController < ActionController::Base
         unless @location
           # Hard code a default
           # TODO: better handling, lookup, choose from list, etc.
-          @location = Location.where('city = ? AND prov_or_state = ?',
-                          'Edmonton', 'AB').first
+          @location = Location.find(1)
         end
 
         if @location
