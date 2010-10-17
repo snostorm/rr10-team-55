@@ -1,9 +1,10 @@
-<div class='message' data-message-id='<%= message.id %>'>
+<div class='message' data-message-id='<%= message.id %>' data-message-user-id='<%= (message.sender == @current_user ? message.recipient.id : message.sender.id) rescue 0 %>'>
   <h1>
     <%= message.subject %>
   </h1>
+  <%= link_to image_tag(message.sender.gravatar_url(:size=>40), :class=>'gravatar'), message.sender if message.sender %>
   <div class='details'>
-    <span class='time'><%= time_ago_in_words message.created_at %></span>
+    <span class='time'><%= time_ago_in_words message.created_at %> ago</span>
   </div>
   <div class='body'>
     <%= message.body %>

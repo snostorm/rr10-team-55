@@ -21,14 +21,15 @@ class MessagesController < ApplicationController
     
     if(signed_in?)
       @users = User.includes(:sent_messages, :received_messages).where('messages.sender_id = ? OR messages.recipient_id = ?', @current_user.id, @current_user.id)
+      @users.all.delete(@current_user)
       
       @sentmessages = @current_user.sent_messages
       @receivedmessages = @current_user.received_messages
       
-      @messages = (@sentmessages & @receivedmessages) << Message.new(:subject=>'Welcome!', :body=>'Welcome to letitfree.me!', :created_at=>@current_user.created_at)
-      @messages.sort_by { |o|
-        o.created_at
-      }
+      @messages = (@sentmessages | @receivedmessages) << Message.new(:subject=>'Welcome!', :body=>'Welcome to letitfree.me!', :created_at=>@current_user.created_at)
+      # @messages.sort_by { |o|
+      #   o.created_at
+      # }
       
       respond_to do |format|
         format.html # new.html.erb
