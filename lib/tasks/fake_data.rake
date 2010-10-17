@@ -4,14 +4,6 @@ namespace :db do
     task :fake_data => :environment do
       require 'random_data'
       newcount = ENV['SIZE'] ? ENV['SIZE'].to_i : 100
-      User.delete_all if(ENV['FLUSH']=='true')
-      newcount.times do
-        c = User.create(
-          :name => (Random.first_name + ' ' + Random.last_name))
-          # :middle_initial => ("A".."Z").to_a.rand, 
-          # :ss_number => 99999999 + rand(999999999 - 99999999), 
-          # :date_of_birth => Time.now - (rand(12000)).days) 
-      end
       
       @categories = Category.all
       
@@ -28,7 +20,12 @@ namespace :db do
             :story),
           :description => Random.paragraphs,
           :location => Random.zipcode,
-          :created_at => Time.now - (rand(12000)).days) 
+          :created_at => Time.now - (rand(12000)).days,
+          :location => Location.find(1),
+          :is_fake_data => true
+          )
+          
+          
           # :middle_initial => ("A".."Z").to_a.rand, 
           # :ss_number => 99999999 + rand(999999999 - 99999999), 
           # :date_of_birth => Time.now - (rand(12000)).days) 
