@@ -16,16 +16,17 @@
   <div id='wrapper'>
     <header>
       <div class='container'>
-      <h1><a href='/'>Let<span class='mid'>it</span>free<span class='end'>.me</span></a></h1>
+      <h1><a href='/'>let<span class='mid'>it</span>free<span class='end'>.me</span></a></h1>
       <h2>
         <span>Find or Offer Items for Free in</span>
         Edmonton
       </h2>
       <nav>
         <ul>
-          <li><%= link_to 'Home', '/' %></li>
-          <li><%= link_to 'Postings', postings_path %></li>
-          <li><%= link_to 'Users', users_path %></li>
+          <li><%= active_link_to 'Home', root_path %></li>
+          <li><%= active_link_to 'Postings', postings_path %></li>
+          <li><%= active_link_to 'Messages', messages_path %></li>
+          <li><%= active_link_to 'Users', users_path %></li>
         </ul>
       </nav>
       </div>

@@ -9,4 +9,9 @@ module ApplicationHelper
       return send(output, posting)
     end
   end
+  
+  def active_link_to(*args)
+    args.push({:class=>'current'}) if current_page?(args[1])
+    link_to(*args)
+  end
 end

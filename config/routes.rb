@@ -2,7 +2,7 @@ Letitfreeme::Application.routes.draw do
   resources :categories do
     resources :postings
   end
-
+  resources :messages, :only=>[:index]
   resources :postings
   resources :users
 
