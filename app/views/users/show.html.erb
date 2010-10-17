@@ -23,5 +23,18 @@
 
 </table>
 
+
+<table>
+  <tr>
+    <td>Number of unread messages&nbsp;</td>
+    <td><%= link_to @user.unread_message_count,messages_path %></td>
+  </tr>
+  <tr>
+    <td>Number of read messages&nbsp;</td>
+    <td><%= @user.read_message_count %></td>
+  </tr>
+  
+</table>
+
 <%= link_to "Edit User",edit_user_path(@user)%>
 

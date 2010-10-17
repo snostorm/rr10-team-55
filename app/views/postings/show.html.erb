@@ -32,7 +32,7 @@
 
 <p>
   <b>Poster:</b>
-  <%= link_to(@author.name)%>
+  <%= link_to(@author.name,@author)%> &nbsp; <%= link_to("Ask a question",new_message_path(:posting => @posting))%>
 </p>
 
 

@@ -1,3 +1,4 @@
+
 <%= content_for :headerMenu do %>
   <a id='newMessage' class='button'>New Message</a>
 <% end %>
@@ -76,3 +77,10 @@
     line-height: 17px;
   }
 </style>
+<%= h(flash[:error])%>
+
+<table>
+<%= render :partial => 'list_messages',:locals => {:messages => @sentmessages,:typeheader => "Sent Messages",:renderUnreadFlag => :false} %>
+<%= render :partial => 'list_messages',:locals => {:messages => @receivedmessages,:typeheader => "Received Messages",:renderUnreadFlag => :true} %>
+
+</table>
