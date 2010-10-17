@@ -1,9 +1,9 @@
 require 'net/http'
 require 'ip_location'
-require 'singleton'
+#require 'singleton'
 
 class IPLocationFetcher
-  include Singleton
+#  include Singleton
 
   def initialize
     # we initialize an empty hash

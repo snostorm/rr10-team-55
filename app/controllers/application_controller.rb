@@ -19,13 +19,13 @@ class ApplicationController < ActionController::Base
     @bodylayout ||= 'interior'
     @title ||= controller_name.capitalize
   end
-
-  # TODO: we only want 1 instance for the whole app, this seems to make one for every request
+  
+  # TODO make this a proper application-level singleton
   @@ip_location_fetcher = nil
 
   def lookup_ip_location
     unless @location
-      if @@ip_location_fetcher.nil?
+      unless @@ip_location_fetcher
         puts "Creating new IPLocationFetcher" # TODO: remove this debugging/tracing output
         @@ip_location_fetcher = IPLocationFetcher.new
       end
@@ -47,8 +47,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id])
-    @location ||= @current_user.location
+    @current_user ||= User.find_by_id(session[:user_id])
+    if @current_user
+      @location ||= @current_user.location
+    end
   end
   
   def current_user_admin?
