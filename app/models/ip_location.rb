@@ -11,6 +11,12 @@ class IPLocation
     parse_ip_location georesults
   end
 
+  def to_s
+    @city + ", " + @prov_state + ", " + @country +
+      ". ISP=" + @isp +
+      ". Location: " + @latitude.to_s + ", " + @longitude.to_s  
+  end
+
   protected
 
   @city = ""
