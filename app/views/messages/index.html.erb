@@ -46,10 +46,13 @@
   
   <div id='messageReader'>
     <div id='newMessage'>
-      <form>
+      <%= form_for Message.new do |f| %>
         <h1>Reply to <span class='username'>Username</span>:</h1>
-        <textarea></textarea>
-      </form>
+        <button type='submit'>Send</button>
+        <%= f.text_field :subject %>
+        <%= f.text_area :body %>
+        <%= f.hidden_field :recipient_id, %>
+      <% end %>
     </div>
     <div id='messageList' class='messageList'>
       <%= render @messages %>
@@ -72,6 +75,8 @@
            $('#messageList .message').hide();
            $('#messageList .message[data-message-user-id="'+selectedID+'"]').show();
            current_user_label.html(selected.attr('data-user-name'));
+           
+           $('#message_recipient_id').val(selectedID);
          }
      
      $('#messageUserThreads .user').click(function(e){
