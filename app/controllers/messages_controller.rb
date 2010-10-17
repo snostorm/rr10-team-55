@@ -2,19 +2,19 @@ class MessagesController < ApplicationController
   before_filter :mustbeloggedintoview
   
   def new
-    # @message = Message.new
-    # 
-    # @posting = Posting.find_by_id(params[:posting])
-    # @post_author = User.find_by_id(@posting.user_id)
-    # @recipient = User.find_by_id( params[:recipient_id])
-    # 
-    # @message.subject = @posting.title
-    # @message.recipient_id = @recipient.id
-    # @message.sender_id = current_user.id
-    # 
-    # respond_to do |format|
-    #   format.html # new.html.erb
-    # end
+    @message = Message.new
+     
+    @posting = Posting.find_by_id(params[:posting])
+    @post_author = User.find_by_id(@posting.user_id)
+    @recipient = User.find_by_id( params[:recipient_id])
+    
+    @message.subject = @posting.title
+    @message.recipient_id = @recipient.id
+    @message.sender_id = current_user.id
+    
+    respond_to do |format|
+       format.html # new.html.erb
+    end
   end
   
   def index
