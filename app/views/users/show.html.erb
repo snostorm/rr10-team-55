@@ -24,6 +24,7 @@
   <% end if signed_in? %>
 </table>
 
+<% if @user == @current_user %>
 
 <table>
   <tr>
@@ -37,5 +38,8 @@
   
 </table>
 
+
+
 <%= link_to "Edit User",edit_user_path(@user)%>
 
+<% end if signed_in? %>
