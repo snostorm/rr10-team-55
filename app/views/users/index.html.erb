@@ -2,20 +2,43 @@
   <%= link_to "Sign in",new_user_path,:class=>'button' %>
 <% end %>
 
-<%= will_paginate @users %> 
-<table>
-  <tr>
-    <td>Name</td>
-  </tr>
 <% @users.in_groups_of(4, false) do |row_users| %>
-  <tr>
-    <% for user in row_users %>
-    <td width="220">
-      <%= link_to(user.name,user) %>  
-    </td>
-    <% end %>
-  </tr>
-</table>
+  <% for user in row_users %>
+  <div class='user' data-user-id='<%= user.id %>'>
+    <div class='content'>
+      <%= image_tag(user.gravatar_url(:size=>32), :class=>'gravatar') %>
+      <div class='userName'>
+        <strong><%= link_to((user.name || 'User'), user) %> </strong>
+        <span class='fullName'><%= user.first_name ? (user.first_name + ' ' + user.last_name) : 'Full Name' %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
 <% end %>
+
+<div style='clear: left'></div>
 <%= will_paginate @users %> 
 
+<style>
+.user {
+  float: left;
+  width: 220px;
+  height: 80px;
+}
+.user .gravatar {
+  float: left;
+}
+.user .content {
+  padding: 5px;
+}
+.user .userName {
+  margin-left: 40px;
+}
+.user .userName strong {
+  display: block;
+}
+div.pagination {
+  width: 300px;
+  margin: 20px auto;
+}
+</style>

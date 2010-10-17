@@ -13,7 +13,7 @@ class PostingsController < ApplicationController
     else
       @title = 'Item Postings'
       @listTitle = 'Recent Items in Edmonton'
-      @postings = Posting.all
+      @postings = Posting.limit(20)
     end
     
     # categories = File.open(File.join(Rails.root, 'public', 'data', 'categories.json'), 'r').read();
