@@ -23,6 +23,8 @@ puts ''
 
 #######################################################################################
 # LOCATION SEEDS
+# Note: there is a second version of the input file which includes proper names
+# for country and prov/state called northamerica-locations-withnames.txt
 ########################################################################################
 puts 'Adding Cities to locations'
 cities_filename = File.join(Rails.root, 'public', 'data', 'northamerica-locations.txt')
