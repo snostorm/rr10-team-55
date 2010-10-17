@@ -4,6 +4,7 @@
     <td>User Name&nbsp;</td>
     <td><%= @user.name %></td>
   </tr>
+  <% if @user == @current_user %>
   <tr>
     <td>First Name&nbsp;</td>
     <td><%= @user.first_name %></td>
@@ -20,7 +21,7 @@
     <td>Bio&nbsp;</td>
     <td><%= @user.bio %></td>
   </tr>
-
+  <% end if signed_in? %>
 </table>
 
 
