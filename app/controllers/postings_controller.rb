@@ -114,7 +114,7 @@ class PostingsController < ApplicationController
   def create_new
     unless(signed_in?)
       flash[:error] = "You must be signed in to create a posting."
-      redirect_to postings_path
+      redirect_to new_user_path
     end
   end
   
