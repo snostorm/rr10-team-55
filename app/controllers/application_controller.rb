@@ -12,15 +12,35 @@ class ApplicationController < ActionController::Base
   
   before_filter :current_user
   before_filter :get_subtemplate_and_title
+  before_filter :lookup_ip_location
   
   protected
   def get_subtemplate_and_title
     @bodylayout ||= 'interior'
     @title ||= controller_name.capitalize
   end
-  
+
+  def lookup_ip_location
+    unless @location
+      if @ip_location_fetcher.nil? @ip_location_fetcher = IPLocationFetcher.new
+      @current_ip_location = @ip_location_fetcher.fetch_location(request.remote_ip)
+      # lookup existing location record in the DB using ip location
+      if @current_ip_location
+        ## TODO handle when ip_location isn't found in Locations 
+        @location = Location.where('city = ? AND prov_state = ?',
+                        @current_ip_location.city, @current_ip_location.prov_state).first
+        unless @location
+          # TODO add IP location to Locations table?
+        end
+      else
+        # TODO what to do if no lookup?  Leave blank probably
+      end
+    end
+  end
+
   def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
+    @current_user ||= User.find(session[:user_id]).include(:location)
+    @location = @current_user.location
   end
   
   def current_user_admin?
