@@ -51,6 +51,7 @@ class ApplicationController < ActionController::Base
     if @current_user
       @location ||= @current_user.location
     end
+    return @current_user
   end
   
   def current_user_admin?
