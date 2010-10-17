@@ -7,7 +7,7 @@
     <div class='content'>
       <%= image_tag(user.gravatar_url(:size=>32), :class=>'gravatar') %>
       <div class='userName'>
-        <strong><%= link_to((user.name || 'User'), user) %> </strong>
+        <strong><%= h user.name %> </strong>
         <span class='fullName'><%= user.first_name ? (user.first_name + ' ' + user.last_name) : 'Full Name' %></span>
       </div>
     </div>
