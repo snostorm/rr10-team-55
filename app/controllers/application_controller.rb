@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
 
         if @location
           if @current_user
-            puts "Setting location " + @location.to_s + " for user " + @current_user.name
+            puts "Setting location #{@location.city}, #{@location.prov_or_state} for user #{@current_user.name}"
             @current_user.location = @location
           else
             puts "No current user."

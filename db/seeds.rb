@@ -27,7 +27,8 @@ puts ''
 # for country and prov/state called northamerica-locations-withnames.txt
 ########################################################################################
 puts 'Adding Cities to locations'
-cities_filename = File.join(Rails.root, 'public', 'data', 'northamerica-locations.txt')
+#cities_filename = File.join(Rails.root, 'public', 'data', 'northamerica-locations.txt')
+cities_filename = File.join(Rails.root, 'public', 'data', 'fake-locations.txt')
 puts 'cities_file=' + cities_filename
 
 CSV.foreach cities_filename do |row|
