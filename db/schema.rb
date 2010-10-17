@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016235856) do
+ActiveRecord::Schema.define(:version => 20101017180533) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20101016235856) do
     t.text     "bio"
     t.string   "location"
     t.string   "email"
+    t.integer  "location_id"
   end
 
 end

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :authorizations
   has_many :postings
+  belongs_to :location
+
   is_gravtastic
   
   has_many :sent_messages, :class_name=>'Message', :foreign_key => "sender_id"
