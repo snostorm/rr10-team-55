@@ -135,9 +135,15 @@ body
   background-color: rgba(100,100,100,0.5);
 }
 #wrapper > footer {
+  position: relative;
   color: #fff;
   background-color: #000;
   border-radius: 0px 0px 6px 6px;
+}
+#wrapper > footer .gravatar {
+  position: absolute; top: 8px; right: 20px;
+  padding: 1px;
+  border: 2px solid rgb(70,70,70);
 }
 #wrapper > footer nav ul li a
 {
