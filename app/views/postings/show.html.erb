@@ -32,9 +32,22 @@
 
 <p>
   <b>Poster:</b>
-  <%= link_to(@author.name,@author)%> &nbsp; <%= link_to("Ask a question",new_message_path(:posting => @posting))%>
+  <%= image_tag(@author.gravatar_url(:size=>32), :class=>'gravatar') %>
+  <%= link_to(@author.name,@author)%> &nbsp; 
 </p>
 
+<p>
+  <% if((signed_in?) && (@author.id == current_user.id)) %>
+    Ask a question about this item (this is your own item)
+  <% else %>
+    <%= link_to("Ask a question about this item",new_message_path(:posting => @posting,:recipient_id => @author ))%>
+  <% end %>
+  <% if((signed_in?) && (@author.id == current_user.id)) %>
+    Request this item (this is your own item)
+  <% else %>
+    <%= link_to("Request this item",new_transaction_path(:posting => @posting))%>
+  <% end %>
+</p>
 
 
 <%= link_to 'Edit', edit_posting_path(@posting) %> |

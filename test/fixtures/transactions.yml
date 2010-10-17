@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  requestor_id: 1
+  poster_id: 1
+  item_id: 1
+  approved_by_poster_at: 2010-10-17 10:48:13
+  completed_at: 2010-10-17 10:48:13
+
+two:
+  requestor_id: 1
+  poster_id: 1
+  item_id: 1
+  approved_by_poster_at: 2010-10-17 10:48:13
+  completed_at: 2010-10-17 10:48:13

@@ -1,0 +1,41 @@
+<%= flash[:notice] %>
+<%= flash[:error] %>
+<%= flash[:info] %>
+
+<table>
+<% if @requesteditems.present? %>
+  <% @requesteditems.each do |transaction| %>
+    <tr>
+      <td>
+        <% item = Posting.find_by_id(transaction.item_id)%>
+        <%= link_to(item.title,item) %> 
+        <%= link_to("Contact the poster to arrange a time if you have not done so",new_message_path(:posting=>item,:recipient_id =>  transaction.poster_id)) %>
+      </td>
+  </tr>
+  <% end %>
+<% end %>
+
+    
+<% if @posteditems.present? %>
+  <% @posteditems.each do |transaction| %>
+    <tr>
+      <td>
+        <% item = Posting.find_by_id(transaction.item_id)%>
+        <%= link_to(item.title,item) %> 
+        <%= link_to("Contact the requestor to arrange a time if you have not done so",new_message_path(:posting=>item,:recipient_id =>  transaction.requestor_id)) %>
+        <% if (transaction.approved_by_poster_at.nil? )%>
+          <% form_for(transaction) do |f| %>
+            <%= f.submit "This item has been picked up" %>
+          <% end %>
+        <% else %>
+          <% form_for(transaction) do |f| %>
+            <%= f.submit "Repost this item" %>
+          <% end %>
+        <% end %>
+      </td>
+  </tr>
+  <% end %>
+
+<% end %>
+
+</table>

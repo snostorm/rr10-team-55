@@ -1,0 +1,10 @@
+<% form_for(@transaction) do |f| %>
+
+  <%= f.hidden_field :requestor_id, :values=> @transaction.requestor_id %>
+  <%= f.hidden_field :poster_id, :values=> @transaction.poster_id %>
+  <%= f.hidden_field :item_id, :values=> @transaction.item_id %>
+
+  Please confirm you want to pick up the item by clicking  
+  <%= f.submit "confirm" %> or <%= link_to("Cancel",@posting)%>
+<% end %>
+ 
