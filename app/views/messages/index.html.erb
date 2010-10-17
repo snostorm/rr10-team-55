@@ -25,13 +25,25 @@
       </div>
     </div>
     <% end %>
+    <div class='user' data-user-id='0'>
+      <div class='content'>
+        <%= image_tag('', :class=>'gravatar') %>
+        <div class='userName'>
+          <strong>Letitfree.me Team</strong>
+          <span class='fullName'></span>
+        </div>
+        <div class='details'>
+          <date class='lastMessageDate'>15 Oct at 00:35</date>
+          <div class='messageCount'>3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id='messageReader'>
+    <%= render @messages %>
   </div>
   <div style='clear: left'></div>
-
-  <%= h(flash[:error])%>
-
-  <table>
-  <%= render :partial => 'list_messages',:locals => {:messages => @sentmessages,:typeheader => "Sent Messages",:renderUnreadFlag => :false} %>
-  <%= render :partial => 'list_messages',:locals => {:messages => @receivedmessages,:typeheader => "Received Messages",:renderUnreadFlag => :true} %>
-  </table>
 </section>
+
+<%= h(flash[:error])%>

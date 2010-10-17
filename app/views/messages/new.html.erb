@@ -1,9 +1,7 @@
 
 <% form_for @message  do |f| %>
 
-  <%= f.hidden_field :recipient_id, :valuse=> @message.recipient_id %>
-  <%= f.hidden_field :sender_id, :valuse=> @message.sender_id %>
-
+  <%= f.hidden_field :recipient_id, :value=> @message.recipient_id %>
 
   <p>
     <%= f.label :recipient %>
