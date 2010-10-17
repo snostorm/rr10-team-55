@@ -21,6 +21,8 @@ gem 'random_data', :git=>'git://github.com/tomharris/random_data.git'
 #pagination
 gem "will_paginate", "~> 3.0.pre2"
 
+#gem "simple-private-messages",'0.0.0',:git =>"git://github.com/professionalnerd/simple-private-messages.git"
+
 # To use debugger
 # gem 'ruby-debug'
 

@@ -1,0 +1,7 @@
+<%= h(flash[:error])%>
+
+<table>
+<%= render :partial => 'list_messages',:locals => {:messages => @sentmessages,:typeheader => "Sent Messages",:renderUnreadFlag => :false} %>
+<%= render :partial => 'list_messages',:locals => {:messages => @receivedmessages,:typeheader => "Received Messages",:renderUnreadFlag => :true} %>
+
+</table>

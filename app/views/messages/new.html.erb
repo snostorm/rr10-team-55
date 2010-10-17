@@ -1,0 +1,25 @@
+
+<% form_for @message  do |f| %>
+
+  <%= f.hidden_field :recipient_id, :valuse=> @message.recipient_id %>
+  <%= f.hidden_field :sender_id, :valuse=> @message.sender_id %>
+
+
+  <p>
+    <%= f.label :recipient %>
+    <%= f.label @post_author.name %>
+  </p>
+
+  <p>
+    <%= f.label :subject %>
+    <%= f.text_field :subject%>
+  </p>
+
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= submit_tag "Send" %>
+  </p>
+<% end %>

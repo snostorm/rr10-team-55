@@ -12,7 +12,9 @@ module PostingsHelper
     truncate(posting.description, :length => 250)
   end
   def category(posting)
-    link_to(posting.category.name, posting.category)
+    if(posting.present? && posting.category.present? && posting.category.name.present?)
+      link_to(posting.category.name, posting.category)
+    end
   end
   def age(posting)
     time_ago_in_words posting.created_at

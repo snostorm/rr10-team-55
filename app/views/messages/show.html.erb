@@ -1,0 +1,20 @@
+<p><strong>From:</strong> <%= @message.sender_id == current_user.id ? link_to("You", user_path(current_user)) : link_to(h(@message.sender_id), user_path(current_user)) %></p>
+<p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
+<p><strong>To:</strong> <%= @message.recipient_id == current_user.id ? link_to("You", user_path(current_user)) : link_to(h(@message.recipient_id), user_path(current_user)) %></p>
+
+<p>
+  <strong>Subject</strong>
+  <%=h @message.subject %>
+</p>
+<p>
+
+<p>
+  <strong>Message</strong><br />
+  <%=h @message.body %>
+</p>
+<p>
+  <% if @message.recipient_id == current_user.id %>
+	  <%= link_to "Reply", new_message_path(@user, :reply_to => @message) %> |
+  <% end %>
+  <%= link_to "Inbox", messages_path%>
+</p>
