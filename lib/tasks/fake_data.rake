@@ -5,6 +5,16 @@ namespace :db do
       require 'random_data'
       newcount = ENV['SIZE'] ? ENV['SIZE'].to_i : 100
       
+      # Fake location
+      # Faketown,AB,ca,53.55,-113.5
+      loc=Location.new(:city => "Faketown", :prov_or_state => "AB", :prov_or_state_name => "Alberta",
+          :country => "ca", :country_name => "Canada", :latitude => 53.55, :longitude => 113.5)
+      if(loc.save)
+        puts "created #{loc.city} @ #{loc.id}"
+      else
+        puts "skipped #{loc.city} @ #{loc.id}"
+      end
+
       @categories = Category.all
       
       Posting.delete_all if(ENV['FLUSH']=='true')
@@ -21,7 +31,7 @@ namespace :db do
           :description => Random.paragraphs,
           :location => Random.zipcode,
           :created_at => Time.now - (rand(12000)).days,
-          :location => Location.find(1),
+          :location => Location.first,
           :is_fake_data => true
           )
           
@@ -30,6 +40,7 @@ namespace :db do
           # :ss_number => 99999999 + rand(999999999 - 99999999), 
           # :date_of_birth => Time.now - (rand(12000)).days) 
       end
+      
     end
   end
 end

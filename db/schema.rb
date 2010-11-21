@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(:version => 20101017232924) do
   create_table "locations", :force => true do |t|
     t.string   "city"
     t.string   "prov_or_state"
+    t.string   "prov_or_state_name"
     t.string   "country"
+    t.string   "country_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "prov_or_state_name"
-    t.string   "country_name"
   end
 
   create_table "messages", :force => true do |t|

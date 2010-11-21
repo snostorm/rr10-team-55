@@ -24,18 +24,21 @@ puts ''
 # Note: there is a second version of the input file which includes proper names
 # for country and prov/state called northamerica-locations-withnames.txt
 ########################################################################################
-puts 'Adding Cities to locations'
-#cities_filename = File.join(Rails.root, 'public', 'data', 'northamerica-locations.txt')
-cities_filename = File.join(Rails.root, 'public', 'data', 'fake-locations.txt')
-puts 'cities_file=' + cities_filename
-
-CSV.foreach cities_filename do |row|
-  if (!row[0].nil?)
-    loc=Location.new(:city => row[0], :prov_or_state => row[1], :country => row[2], :latitude => row[3], :longitude => row[4])
-    if(loc.save)
-      puts "created #{loc.city} @ #{loc.id}"
-    else
-      puts "skipped #{row[0]}"
+ActiveRecord::Base.transaction do
+  puts 'Adding Cities to locations'
+#  cities_filename = File.join(Rails.root, 'public', 'data', 'northamerica-locations.txt')
+  cities_filename = File.join(Rails.root, 'public', 'data', 'fake-locations.txt')
+#  cities_filename = File.join(Rails.root, 'public', 'data', 'northamerica-locations-withnames.txt')
+  puts 'cities_file=' + cities_filename
+  
+  CSV.foreach cities_filename do |row|
+    if (!row[0].nil?)
+      loc=Location.new(:city => row[0], :prov_or_state => row[1], :country => row[2], :latitude => row[3], :longitude => row[4])
+      if(loc.save)
+        puts "created #{loc.city} @ #{loc.id}"
+      else
+        puts "skipped #{row[0]}"
+      end
     end
   end
 end
