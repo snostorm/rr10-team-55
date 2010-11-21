@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_admin?
 
   # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password
   
   before_filter :current_user
   before_filter :get_subtemplate_and_title
   before_filter :lookup_ip_location
-  
+
   protected
   def get_subtemplate_and_title
     @bodylayout ||= 'interior'
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   def lookup_ip_location
     unless @location
       unless @@ip_location_fetcher
-        puts "Creating new IPLocationFetcher" # TODO: remove this debugging/tracing output
+        logger.info "Creating new IPLocationFetcher"
         @@ip_location_fetcher = IPLocationFetcher.new
       end
 
@@ -44,10 +44,10 @@ class ApplicationController < ActionController::Base
 
         if @location
           if @current_user
-            puts "Setting location #{@location.city}, #{@location.prov_or_state} for user #{@current_user.name}"
+            logger.info "Setting location #{@location.city}, #{@location.prov_or_state} for user #{@current_user.name}"
             @current_user.location = @location
           else
-            puts "No current user."
+            logger.info "No current user."
           end
         else
           # TODO add IP location to Locations table?

@@ -1,13 +1,11 @@
 require 'net/http'
 require 'ip_location'
-#require 'singleton'
 
 class IPLocationFetcher
-#  include Singleton
 
   def initialize
     # we initialize an empty hash
-    @cache = {}
+    ApplicationController::Base.cache_store = :file_store
   end
 
   def fetch_location(ip_address, max_age=DEFAULT_MAX_AGE)
