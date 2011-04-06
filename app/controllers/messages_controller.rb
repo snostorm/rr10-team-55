@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_filter :mustbeloggedintoview
   
   def mustbeloggedintoview
-    if !(signed_in?)
+    unless (signed_in?)
       flash[:error] = "You must be logged in"
       redirect_to new_user_path
     end
@@ -25,9 +25,10 @@ class MessagesController < ApplicationController
   end
   
   def index
+    logger.info("messages index action")
     @title = 'Message Centre'
     
-    if(signed_in?)
+    #if(signed_in?)
       @users = User.includes(:sent_messages, :received_messages).where('messages.sender_id = ? OR messages.recipient_id = ?', @current_user.id, @current_user.id)
       @users.all.delete(@current_user)
       
@@ -42,9 +43,9 @@ class MessagesController < ApplicationController
       respond_to do |format|
         format.html # new.html.erb
       end
-    else
-      return redirect_to root_path
-    end
+    #else
+    #  return redirect_to root_path
+    #end
   end
   
   def show
@@ -79,16 +80,6 @@ class MessagesController < ApplicationController
         flash[:notice] = "Messages deleted"
       end
       redirect_to user_message_path(@message, @messages)
-    end
-  end
-  
-  private
-    
-  
-  def mustbeloggedintoview
-    unless(signed_in?)
-      flash[:error] = "you must be logged in to read or create messages"
-      redirect_to messages_path
     end
   end
 end

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  helper_method :current_user_admin?
+  helper_method :current_user_admin?,:current_user, :signed_in?
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
   @@ip_location_fetcher = nil
 
   def lookup_ip_location
+    if(!session[:user_id].present?)
+      return
+    end
+    debugger
+    logger.info("lookup_ip_location")
     unless @location
       unless @@ip_location_fetcher
         logger.info "Creating new IPLocationFetcher"
@@ -59,11 +64,18 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
-    if @current_user
-      @location ||= @current_user.location
+    logger.info("current_user: session id: " + session[:user_id].to_s)
+    if(session[:user_id].present?)
+      @current_user ||= User.find_by_id(session[:user_id])
+      logger.info("current user " + @current_user.inspect)
+      if @current_user.present?
+        logger.info("current user present")
+        @location ||= @current_user.location
+      end
+      return @current_user
+    else
+      return nil
     end
-    return @current_user
   end
   
   def current_user_admin?
@@ -71,10 +83,13 @@ class ApplicationController < ActionController::Base
   end
   
   def signed_in?
-    !!current_user
+    if(session[:user_id].present?)
+      logger.info("signed_in?")
+      !!current_user
+    else
+      return nil
+    end
   end
-  
-  helper_method :current_user, :signed_in?
   
   def current_user=(user)
     @current_user = user

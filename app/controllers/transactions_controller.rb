@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
   def mustbeloggedintoview
     unless (signed_in?)
       flash[:error] = "You must be logged in"
-      redirect_to root
+      redirect_to new_user_path
     end
   end
   
