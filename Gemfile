@@ -23,10 +23,6 @@ gem "will_paginate", '~> 3.0.beta'
 
 gem "gravtastic"
 
-group :development, :test do
-   gem 'ruby-debug19'
-end
-
 
 #gem "simple-private-messages",'0.0.0',:git =>"git://github.com/professionalnerd/simple-private-messages.git"
 
