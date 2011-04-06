@@ -1,5 +1,5 @@
 
-<% form_for @message  do |f| %>
+<% form_for @message do |f| %>
 
   <%= f.hidden_field :recipient_id, :values=> @message.recipient_id %>
   <%= f.hidden_field :sender_id, :values=> @message.sender_id %>

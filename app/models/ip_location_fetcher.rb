@@ -3,9 +3,10 @@ require 'ip_location'
 
 class IPLocationFetcher
 
-  def initialize
+  def initialize_ip
     # we initialize an empty hash
-    ApplicationController::Base.cache_store = :file_store
+    #ApplicationController::Base.cache_store = :file_store
+    @cache = Hash.new
   end
 
   def fetch_location(ip_address, max_age=DEFAULT_MAX_AGE)

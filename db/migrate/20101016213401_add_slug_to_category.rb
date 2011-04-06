@@ -1,6 +1,13 @@
 class AddSlugToCategory < ActiveRecord::Migration
+  class Category < ActiveRecord::Base
+    
+  end
+  
   def self.up
-    add_column :categories, :slug, :string
+    
+    change_table :categories do |t|
+      t.string :slug
+    end
     
     Category.where(:slug=>nil).each do |category|
       category.create_slug_from_name

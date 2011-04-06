@@ -1,6 +1,13 @@
 class MessagesController < ApplicationController
   before_filter :mustbeloggedintoview
   
+  def mustbeloggedintoview
+    if !(signed_in?)
+      flash[:error] = "You must be logged in"
+      redirect_to new_user_path
+    end
+  end
+  
   def new
     @message = Message.new
      
@@ -36,7 +43,7 @@ class MessagesController < ApplicationController
         format.html # new.html.erb
       end
     else
-      return redirect_to new_sessions_path
+      return redirect_to root_path
     end
   end
   

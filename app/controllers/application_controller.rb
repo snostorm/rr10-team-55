@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
       unless @@ip_location_fetcher
         logger.info "Creating new IPLocationFetcher"
         @@ip_location_fetcher = IPLocationFetcher.new
+        @@ip_location_fetcher.initialize_ip
       end
 
       @current_ip_location = @@ip_location_fetcher.fetch_location(request.remote_ip)

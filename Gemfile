@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,6 +22,11 @@ gem 'random_data', :git=>'git://github.com/tomharris/random_data.git'
 gem "will_paginate", '~> 3.0.beta'
 
 gem "gravtastic"
+
+group :development, :test do
+   gem 'ruby-debug19'
+end
+
 
 #gem "simple-private-messages",'0.0.0',:git =>"git://github.com/professionalnerd/simple-private-messages.git"
 

@@ -1,4 +1,13 @@
 class TransactionsController < ApplicationController
+  before_filter :mustbeloggedintoview
+  
+  def mustbeloggedintoview
+    unless (signed_in?)
+      flash[:error] = "You must be logged in"
+      redirect_to root
+    end
+  end
+  
   def new
     @posting = Posting.find_by_id(params[:posting])
     @post_author = User.find_by_id(@posting.user_id)
