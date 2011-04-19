@@ -1,5 +1,3 @@
-require 'gravtastic'
-
 class User < ActiveRecord::Base
   #validates_presence_of :email
   
@@ -8,7 +6,8 @@ class User < ActiveRecord::Base
   has_many :postings
   belongs_to :location
 
-  is_gravtastic
+  include Gravtastic
+  gravtastic
   
   has_many :sent_messages, :class_name=>'Message', :foreign_key => "sender_id"
   has_many :received_messages, :class_name=>'Message', :foreign_key => "recipient_id"
