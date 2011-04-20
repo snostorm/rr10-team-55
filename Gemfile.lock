@@ -64,6 +64,7 @@ GEM
     mime-types (1.16)
     multi_json (0.0.5)
     multipart-post (1.1.0)
+    mysql (2.8.1)
     net-ldap (0.1.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -158,6 +159,7 @@ DEPENDENCIES
   capistrano
   gravtastic
   jquery-rails
+  mysql (~> 2.8.1)
   omniauth
   rails (= 3.0.0)
   random_data!
