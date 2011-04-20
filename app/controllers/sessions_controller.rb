@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
   
   def create_with_twitter
-    auth = request.env['rack.auth']
+    auth = request.env['omniauth.auth']
     
     build_auth()
     
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   
 protected
   def build_auth
-    auth = request.env['rack.auth']
+    auth = request.env['omniauth.auth']
     debugger
     unless @auth = Authorization.find_from_hash(auth)
       # Create a new user or add an auth to existing user, depending on
